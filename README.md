@@ -1,11 +1,9 @@
-# Rsbuild project
-
 ## Setup
 
 Install the dependencies:
 
 ```bash
-pnpm install
+bun i
 ```
 
 ## Get started
@@ -13,13 +11,7 @@ pnpm install
 Start the dev server:
 
 ```bash
-pnpm dev
-```
-
-Build the app for production:
-
-```bash
-pnpm build
+bun serve
 ```
 
 Preview the production build locally:
