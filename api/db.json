@@ -1,0 +1,223 @@
+{
+  "metrics": {
+    "totalUsers": 1200000,
+    "activeUsers": 450000,
+    "totalStreams": 18000000,
+    "revenue": {
+      "total": 2500000,
+      "subscriptions": 1800000,
+      "ads": 700000
+    },
+    "topArtist": {
+      "name": "Drake",
+      "streamsLast30Days": 1500000
+    },
+    "growth": [
+      {
+        "month": "2024-02",
+        "totalUser": "900000",
+        "activeUser": "300000"
+      },
+      {
+        "month": "2024-03",
+        "totalUser": "950000",
+        "activeUser": "320000"
+      },
+      {
+        "month": "2024-04",
+        "totalUser": "980000",
+        "activeUser": "340000"
+      },
+      {
+        "month": "2024-05",
+        "totalUser": "1020000",
+        "activeUser": "360000"
+      },
+      {
+        "month": "2024-06",
+        "totalUser": "1070000",
+        "activeUser": "380000"
+      },
+      {
+        "month": "2024-07",
+        "totalUser": "1100000",
+        "activeUser": "400000"
+      },
+      {
+        "month": "2024-08",
+        "totalUser": "1130000",
+        "activeUser": "420000"
+      },
+      {
+        "month": "2024-09",
+        "totalUser": "1150000",
+        "activeUser": "430000"
+      },
+      {
+        "month": "2024-10",
+        "totalUser": "1180000",
+        "activeUser": "440000"
+      },
+      {
+        "month": "2024-11",
+        "totalUser": "1195000",
+        "activeUser": "445000"
+      },
+      {
+        "month": "2024-12",
+        "totalUser": "1200000",
+        "activeUser": "448000"
+      },
+      {
+        "month": "2025-01",
+        "totalUser": "1220000",
+        "activeUser": "450000"
+      },
+      {
+        "month": "2025-02",
+        "totalUser": "1250000",
+        "activeUser": "460000"
+      }
+    ],
+    "revenueDistribution": {
+      "subscriptions": 72,
+      "ads": 28
+    }
+  },
+  "songs": {
+    "recent": [
+      {
+        "songName": "Blinding Lights",
+        "artist": "The Weeknd",
+        "dateStreamed": "2025-02-20",
+        "streamCount": 1,
+        "userId": 12345
+      },
+      {
+        "songName": "Save Your Tears",
+        "artist": "The Weeknd",
+        "dateStreamed": "2025-02-20",
+        "streamCount": 1,
+        "userId": 67890
+      },
+      {
+        "songName": "Industry Baby",
+        "artist": "Lil Nas X",
+        "dateStreamed": "2025-02-20",
+        "streamCount": 1,
+        "userId": 54321
+      },
+      {
+        "songName": "Bad Habits",
+        "artist": "Ed Sheeran",
+        "dateStreamed": "2025-02-19",
+        "streamCount": 1,
+        "userId": 98765
+      },
+      {
+        "songName": "Levitating",
+        "artist": "Dua Lipa",
+        "dateStreamed": "2025-02-19",
+        "streamCount": 1,
+        "userId": 24680
+      },
+      {
+        "songName": "Shape of You",
+        "artist": "Ed Sheeran",
+        "dateStreamed": "2025-02-18",
+        "streamCount": 1,
+        "userId": 13579
+      },
+      {
+        "songName": "Heat Waves",
+        "artist": "Glass Animals",
+        "dateStreamed": "2025-02-17",
+        "streamCount": 1,
+        "userId": 98712
+      },
+      {
+        "songName": "STAY",
+        "artist": "The Kid LAROI & Justin Bieber",
+        "dateStreamed": "2025-02-16",
+        "streamCount": 1,
+        "userId": 56432
+      },
+      {
+        "songName": "Montero (Call Me By Your Name)",
+        "artist": "Lil Nas X",
+        "dateStreamed": "2025-02-15",
+        "streamCount": 1,
+        "userId": 24567
+      },
+      {
+        "songName": "Watermelon Sugar",
+        "artist": "Harry Styles",
+        "dateStreamed": "2025-02-14",
+        "streamCount": 1,
+        "userId": 76890
+      },
+      {
+        "songName": "Peaches",
+        "artist": "Justin Bieber",
+        "dateStreamed": "2025-02-13",
+        "streamCount": 1,
+        "userId": 34789
+      },
+      {
+        "songName": "Good 4 U",
+        "artist": "Olivia Rodrigo",
+        "dateStreamed": "2025-02-12",
+        "streamCount": 1,
+        "userId": 98632
+      },
+      {
+        "songName": "Shivers",
+        "artist": "Ed Sheeran",
+        "dateStreamed": "2025-02-11",
+        "streamCount": 1,
+        "userId": 10345
+      },
+      {
+        "songName": "Easy On Me",
+        "artist": "Adele",
+        "dateStreamed": "2025-02-10",
+        "streamCount": 1,
+        "userId": 29563
+      },
+      {
+        "songName": "As It Was",
+        "artist": "Harry Styles",
+        "dateStreamed": "2025-02-09",
+        "streamCount": 1,
+        "userId": 46789
+      }
+    ],
+    "top": [
+      {
+        "songName": "Blinding Lights",
+        "artist": "The Weeknd",
+        "streamsLast30Days": 500000
+      },
+      {
+        "songName": "Industry Baby",
+        "artist": "Lil Nas X",
+        "streamsLast30Days": 480000
+      },
+      {
+        "songName": "Save Your Tears",
+        "artist": "The Weeknd",
+        "streamsLast30Days": 460000
+      },
+      {
+        "songName": "Bad Habits",
+        "artist": "Ed Sheeran",
+        "streamsLast30Days": 450000
+      },
+      {
+        "songName": "Levitating",
+        "artist": "Dua Lipa",
+        "streamsLast30Days": 430000
+      }
+    ]
+  }
+}
