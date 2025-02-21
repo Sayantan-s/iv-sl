@@ -2,87 +2,7 @@
   "metrics": {
     "totalUsers": 1200000,
     "activeUsers": 450000,
-    "totalStreams": 18000000,
-    "revenue": {
-      "total": 2500000,
-      "subscriptions": 1800000,
-      "ads": 700000
-    },
-    "topArtist": {
-      "name": "Drake",
-      "streamsLast30Days": 1500000
-    },
-    "growth": [
-      {
-        "month": "2024-02",
-        "totalUser": "900000",
-        "activeUser": "300000"
-      },
-      {
-        "month": "2024-03",
-        "totalUser": "950000",
-        "activeUser": "320000"
-      },
-      {
-        "month": "2024-04",
-        "totalUser": "980000",
-        "activeUser": "340000"
-      },
-      {
-        "month": "2024-05",
-        "totalUser": "1020000",
-        "activeUser": "360000"
-      },
-      {
-        "month": "2024-06",
-        "totalUser": "1070000",
-        "activeUser": "380000"
-      },
-      {
-        "month": "2024-07",
-        "totalUser": "1100000",
-        "activeUser": "400000"
-      },
-      {
-        "month": "2024-08",
-        "totalUser": "1130000",
-        "activeUser": "420000"
-      },
-      {
-        "month": "2024-09",
-        "totalUser": "1150000",
-        "activeUser": "430000"
-      },
-      {
-        "month": "2024-10",
-        "totalUser": "1180000",
-        "activeUser": "440000"
-      },
-      {
-        "month": "2024-11",
-        "totalUser": "1195000",
-        "activeUser": "445000"
-      },
-      {
-        "month": "2024-12",
-        "totalUser": "1200000",
-        "activeUser": "448000"
-      },
-      {
-        "month": "2025-01",
-        "totalUser": "1220000",
-        "activeUser": "450000"
-      },
-      {
-        "month": "2025-02",
-        "totalUser": "1250000",
-        "activeUser": "460000"
-      }
-    ],
-    "revenueDistribution": {
-      "subscriptions": 72,
-      "ads": 28
-    }
+    "totalStreams": 18000000
   },
   "songs": {
     "recent": [
@@ -219,5 +139,91 @@
         "streamsLast30Days": 430000
       }
     ]
-  }
+  },
+  "revenue": {
+    "generated": {
+      "total": 2500000,
+      "subscriptions": 1800000,
+      "ads": 700000
+    },
+    "distributions": {
+      "subscriptions": 72,
+      "ads": 28
+    }
+  },
+  "artists": {
+    "top": [
+      {
+        "name": "Drake",
+        "streamsLast30Days": 1500000
+      }
+    ]
+  },
+  "growth": [
+    {
+      "month": "2024-02",
+      "totalUser": "900000",
+      "activeUser": "300000"
+    },
+    {
+      "month": "2024-03",
+      "totalUser": "950000",
+      "activeUser": "320000"
+    },
+    {
+      "month": "2024-04",
+      "totalUser": "980000",
+      "activeUser": "340000"
+    },
+    {
+      "month": "2024-05",
+      "totalUser": "1020000",
+      "activeUser": "360000"
+    },
+    {
+      "month": "2024-06",
+      "totalUser": "1070000",
+      "activeUser": "380000"
+    },
+    {
+      "month": "2024-07",
+      "totalUser": "1100000",
+      "activeUser": "400000"
+    },
+    {
+      "month": "2024-08",
+      "totalUser": "1130000",
+      "activeUser": "420000"
+    },
+    {
+      "month": "2024-09",
+      "totalUser": "1150000",
+      "activeUser": "430000"
+    },
+    {
+      "month": "2024-10",
+      "totalUser": "1180000",
+      "activeUser": "440000"
+    },
+    {
+      "month": "2024-11",
+      "totalUser": "1195000",
+      "activeUser": "445000"
+    },
+    {
+      "month": "2024-12",
+      "totalUser": "1200000",
+      "activeUser": "448000"
+    },
+    {
+      "month": "2025-01",
+      "totalUser": "1220000",
+      "activeUser": "450000"
+    },
+    {
+      "month": "2025-02",
+      "totalUser": "1250000",
+      "activeUser": "460000"
+    }
+  ]
 }

@@ -14,8 +14,11 @@ Start the dev server:
 bun serve
 ```
 
-Preview the production build locally:
+### Security
 
-```bash
-pnpm preview
-```
+- API Proxy
+
+### DX (PerfOps)
+
+- Lazy compilation
+- Dual server concurrency
