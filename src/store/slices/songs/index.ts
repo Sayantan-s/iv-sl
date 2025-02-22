@@ -1,13 +1,16 @@
-import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { initialStateMSongs } from "./state";
-
-const initialState = createEntityAdapter();
+import { recentsExtraReducers } from "./recents.reducers";
+import { hitsExtraReducers } from "./hits.reducers";
 
 export const songsSlice = createSlice({
-  name: "songs",
-  initialState: initialState.getInitialState(initialStateMSongs),
+  name: "musicInsights",
+  initialState: initialStateMSongs,
   reducers: {},
-  extraReducers(builder) {},
+  extraReducers(builder) {
+    recentsExtraReducers(builder);
+    hitsExtraReducers(builder);
+  },
 });
 
 export const songsActions = songsSlice.actions;

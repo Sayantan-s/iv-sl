@@ -1,4 +1,6 @@
-const RECENT_SONGS = [
+import { ISongInfo } from "./type";
+
+const RECENT_SONGS: ISongInfo[] = [
   {
     song: {
       id: "song_a1b2c3d4",
@@ -20,6 +22,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-15T10:30:00Z",
     streamCount: 78,
+    revenueSource: "subscriptions",
   },
   {
     song: {
@@ -42,6 +45,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-14T16:45:00Z",
     streamCount: 92,
+    revenueSource: "subscriptions",
   },
   {
     song: {
@@ -64,6 +68,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-13T22:10:00Z",
     streamCount: 120,
+    revenueSource: "ads",
   },
   {
     song: {
@@ -86,6 +91,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-12T09:20:00Z",
     streamCount: 68,
+    revenueSource: "subscriptions",
   },
   {
     song: {
@@ -108,6 +114,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-11T18:05:00Z",
     streamCount: 85,
+    revenueSource: "ads",
   },
   {
     song: {
@@ -130,6 +137,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-10T14:55:00Z",
     streamCount: 110,
+    revenueSource: "subscriptions",
   },
   {
     song: {
@@ -152,6 +160,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-09T21:30:00Z",
     streamCount: 72,
+    revenueSource: "ads",
   },
   {
     song: {
@@ -174,6 +183,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-08T12:40:00Z",
     streamCount: 98,
+    revenueSource: "subscriptions",
   },
   {
     song: {
@@ -196,6 +206,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-07T19:15:00Z",
     streamCount: 135,
+    revenueSource: "ads",
   },
   {
     song: {
@@ -218,6 +229,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-06T15:30:00Z",
     streamCount: 89,
+    revenueSource: "subscriptions",
   },
   {
     song: {
@@ -240,6 +252,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-05T11:00:00Z",
     streamCount: 75,
+    revenueSource: "ads",
   },
   {
     song: {
@@ -262,6 +275,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-04T17:45:00Z",
     streamCount: 60,
+    revenueSource: "subscriptions",
   },
   {
     song: {
@@ -284,6 +298,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-03T08:30:00Z",
     streamCount: 55,
+    revenueSource: "ads",
   },
   {
     song: {
@@ -306,6 +321,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-02T20:00:00Z",
     streamCount: 95,
+    revenueSource: "subscriptions",
   },
   {
     song: {
@@ -328,6 +344,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-03-01T13:15:00Z",
     streamCount: 115,
+    revenueSource: "ads",
   },
   {
     song: {
@@ -350,6 +367,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-02-28T09:45:00Z",
     streamCount: 63,
+    revenueSource: "subscriptions",
   },
   {
     song: {
@@ -372,6 +390,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-02-27T16:20:00Z",
     streamCount: 81,
+    revenueSource: "ads",
   },
   {
     song: {
@@ -394,6 +413,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-02-26T22:50:00Z",
     streamCount: 70,
+    revenueSource: "subscriptions",
   },
   {
     song: {
@@ -416,6 +436,7 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-02-25T14:00:00Z",
     streamCount: 105,
+    revenueSource: "ads",
   },
   {
     song: {
@@ -438,10 +459,11 @@ const RECENT_SONGS = [
     },
     streamedDate: "2024-02-24T10:10:00Z",
     streamCount: 66,
+    revenueSource: "subscriptions",
   },
 ];
 
-const TOP_SONGS = [
+const TOP_SONGS: ISongInfo[] = [
   {
     song: {
       id: "song_top_1",
@@ -461,6 +483,7 @@ const TOP_SONGS = [
       name: "Ava Rodriguez",
       profilePic: "https://example.com/images/ava_rodriguez_top.jpg",
     },
+    revenueSource: "subscriptions",
     streamedDate: "2024-03-16T14:00:00Z",
     streamCount: 150,
   },
@@ -483,6 +506,7 @@ const TOP_SONGS = [
       name: "Ethan Carter",
       profilePic: "https://example.com/images/ethan_carter_top.jpg",
     },
+    revenueSource: "subscriptions",
     streamedDate: "2024-03-16T13:30:00Z",
     streamCount: 145,
   },
@@ -505,6 +529,7 @@ const TOP_SONGS = [
       name: "Isabella Nguyen",
       profilePic: "https://example.com/images/isabella_nguyen_top.jpg",
     },
+    revenueSource: "ads",
     streamedDate: "2024-03-16T13:00:00Z",
     streamCount: 140,
   },
@@ -527,6 +552,7 @@ const TOP_SONGS = [
       name: "Jackson Davis",
       profilePic: "https://example.com/images/jackson_davis_top.jpg",
     },
+    revenueSource: "subscriptions",
     streamedDate: "2024-03-16T12:30:00Z",
     streamCount: 135,
   },
@@ -549,6 +575,7 @@ const TOP_SONGS = [
       name: "Sophia Wilson",
       profilePic: "https://example.com/images/sophia_wilson_top.jpg",
     },
+    revenueSource: "ads",
     streamedDate: "2024-03-16T12:00:00Z",
     streamCount: 130,
   },
@@ -571,6 +598,7 @@ const TOP_SONGS = [
       name: "Liam Garcia",
       profilePic: "https://example.com/images/liam_garcia_top.jpg",
     },
+    revenueSource: "subscriptions",
     streamedDate: "2024-03-16T11:30:00Z",
     streamCount: 125,
   },
@@ -593,6 +621,7 @@ const TOP_SONGS = [
       name: "Mia Rodriguez",
       profilePic: "https://example.com/images/mia_rodriguez_top.jpg",
     },
+    revenueSource: "ads",
     streamedDate: "2024-03-16T11:00:00Z",
     streamCount: 120,
   },
@@ -615,6 +644,7 @@ const TOP_SONGS = [
       name: "Noah Adams",
       profilePic: "https://example.com/images/noah_adams_top.jpg",
     },
+    revenueSource: "subscriptions",
     streamedDate: "2024-03-16T10:30:00Z",
     streamCount: 115,
   },
@@ -637,6 +667,7 @@ const TOP_SONGS = [
       name: "Chloe Baker",
       profilePic: "https://example.com/images/chloe_baker_top.jpg",
     },
+    revenueSource: "ads",
     streamedDate: "2024-03-16T10:00:00Z",
     streamCount: 110,
   },
@@ -659,6 +690,7 @@ const TOP_SONGS = [
       name: "Daniel Perez",
       profilePic: "https://example.com/images/daniel_perez_top.jpg",
     },
+    revenueSource: "subscriptions",
     streamedDate: "2024-03-16T09:30:00Z",
     streamCount: 105,
   },

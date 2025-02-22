@@ -1,4 +1,4 @@
-enum SONGS_API {
+export enum SONGS_API {
   songs = "songs",
   hits = "hits",
 }

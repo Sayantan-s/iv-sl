@@ -2,6 +2,7 @@ import { api } from "../..";
 import { SONGS_HITS_OUTPUT, SONGS_RECENT_OUTPUT } from "./op";
 import { ISongInfo } from "./type";
 import { apiResolver } from "../../../utils/apiResolver";
+import { SONGS_API } from "./uri";
 
 export const songsApi = api.injectEndpoints({
   endpoints: (builder) => ({

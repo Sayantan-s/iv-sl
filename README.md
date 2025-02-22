@@ -21,4 +21,11 @@ bun serve
 ### DX (PerfOps)
 
 - Lazy compilation
-- Dual server concurrency
+
+### PerfOps
+
+- Normalized State shape
+
+### Tables
+
+- Could have used proper semanticity for tables

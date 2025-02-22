@@ -4,6 +4,13 @@ export interface ISongInfo {
   user: IUser;
   streamedDate: string;
   streamCount: number;
+  revenueSource: IRevenueSource;
+}
+
+export type IRevenueSource = "subscriptions" | "ads";
+export enum ERevenueSource {
+  Subscriptions = "subscriptions",
+  Ads = "ads",
 }
 
 export interface ISong {
