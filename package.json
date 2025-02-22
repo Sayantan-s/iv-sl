@@ -12,6 +12,7 @@
     "serve": "concurrently -n 'server,client' -c 'red,green'  \"bun server\" \"bun dev\""
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@reduxjs/toolkit": "^2.5.1",
     "@tailwindcss/postcss": "^4.0.7",
     "concurrently": "^9.1.2",
