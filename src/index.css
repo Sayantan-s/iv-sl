@@ -17,3 +17,29 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+@theme {
+  --color-orange-50: #fff6ed;
+  --color-orange-100: #ffebd4;
+  --color-orange-200: #ffd3a8;
+  --color-orange-300: #ffb371;
+  --color-orange-400: #ff822e;
+  --color-orange-500: #fe6711;
+  --color-orange-600: #ef4c07;
+  --color-orange-700: #c63608;
+  --color-orange-800: #9d2c0f;
+  --color-orange-900: #7e2710;
+  --color-orange-950: #441006;
+
+  --color-gray-50: #f7f7f8;
+  --color-gray-100: #eeeef0;
+  --color-gray-200: #d8d9df;
+  --color-gray-300: #b6b8c3;
+  --color-gray-400: #8f92a1;
+  --color-gray-500: #717586;
+  --color-gray-600: #5b5e6e;
+  --color-gray-700: #4a4b5a;
+  --color-gray-800: #40424c;
+  --color-gray-900: #3b3c45;
+  --color-gray-950: #25252c;
+}

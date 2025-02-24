@@ -1,8 +1,5 @@
-export const apiResolver = <TOutput>(
-  op: TOutput,
-  delay?: number
-): Promise<TOutput> => {
+export const apiResolver = <TOutput>(op: TOutput): Promise<TOutput> => {
   const randomNumber = Math.floor(Math.random() * 6) + 1;
-  const wait = (delay || 1000) * randomNumber;
-  return new Promise((res) => setTimeout(() => res(op), wait));
+  const delay = randomNumber * 1000;
+  return new Promise((res) => setTimeout(() => res(op), delay));
 };

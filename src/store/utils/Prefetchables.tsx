@@ -7,5 +7,6 @@ export const Prefetchables: FC<PropsWithChildren> = ({ children }) => {
   metricsApi.useRevenueQuery();
   songsApi.useHitsQuery();
   songsApi.useSongsQuery();
+  songsApi.useTopArtistQuery();
   return children;
 };

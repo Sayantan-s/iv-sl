@@ -19,7 +19,12 @@ export const songsAdapter = createEntityAdapter({
 });
 
 export const initialStateMSongs = {
-  artists: artistsAdapter.getInitialState(),
+  artists: artistsAdapter.getInitialState({
+    topArtist: initialStateCreator("data", {
+      id: "",
+      streamCount: 0,
+    }),
+  }),
   users: usersAdapter.getInitialState(),
   songs: songsAdapter.getInitialState({
     recents: initialStateCreator("ids", RECENT_SONG_INITIAL_STATE),

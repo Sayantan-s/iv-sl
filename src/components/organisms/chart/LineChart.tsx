@@ -1,52 +1,68 @@
-import { Line, LineChart } from "recharts";
+import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 
 import { ChartConfig, Container, Tooltip, TooltipContent } from ".";
+import clsx from "clsx";
 
-const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
-];
-const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "hsl(var(--chart-1))",
-  },
-} satisfies ChartConfig;
+interface IChartConventions {
+  dataKey: string;
+  color: string;
+}
 
-export const ChartLine = () => {
+interface Props<T> {
+  config: ChartConfig;
+  data: T[];
+  convention: IChartConventions[];
+  xAxisKey: string;
+  xAxisColor: string;
+  cartesianGridColor: string;
+  className?: string;
+}
+
+export const ChartLine = <T,>({
+  config,
+  data,
+  convention,
+  xAxisColor,
+  xAxisKey,
+  cartesianGridColor,
+  className,
+}: Props<T>) => {
   return (
-    <div className="w-full mx-auto p-6 bg-[linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5),linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5)] bg-[length:10px_10px] bg-white">
-      <Container config={chartConfig}>
-        <LineChart
-          accessibilityLayer
-          data={chartData}
-          margin={{
-            left: 12,
-            right: 12,
-          }}
-        >
-          {/* <CartesianGrid vertical={false} /> */}
-          {/* <XAxis
-              dataKey="month"
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
-            /> */}
-          <Tooltip cursor={false} content={<TooltipContent hideLabel />} />
+    <Container
+      config={config}
+      className={clsx(
+        "w-full mx-auto bg-[linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5),linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5)] bg-[length:10px_10px] bg-white",
+        className
+      )}
+    >
+      <LineChart
+        accessibilityLayer
+        data={data}
+        margin={{
+          left: 12,
+          right: 12,
+        }}
+      >
+        <CartesianGrid vertical={false} stroke={cartesianGridColor} />
+        <XAxis
+          dataKey={xAxisKey}
+          tickLine={false}
+          axisLine={false}
+          tickMargin={8}
+          tickFormatter={(value) => value.slice(0, 3)}
+          stroke={xAxisColor}
+        />
+        <Tooltip cursor={false} content={<TooltipContent hideLabel />} />
+        {convention.map(({ dataKey, color }) => (
           <Line
-            dataKey="desktop"
-            type="natural"
-            stroke="var(--color-desktop)"
-            strokeWidth={2}
+            dataKey={dataKey}
+            type="monotone"
+            stroke={color}
+            strokeWidth={2.5}
             dot={false}
           />
-        </LineChart>
-      </Container>
-    </div>
+        ))}
+      </LineChart>
+    </Container>
   );
 };

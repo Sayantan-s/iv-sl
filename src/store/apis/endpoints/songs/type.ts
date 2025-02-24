@@ -32,3 +32,7 @@ export interface IUser {
   name: string;
   profilePic: string;
 }
+
+export interface ITopArtist extends IArtist {
+  totalStreams: number;
+}

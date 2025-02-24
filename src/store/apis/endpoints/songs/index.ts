@@ -1,6 +1,6 @@
 import { api } from "../..";
-import { SONGS_HITS_OUTPUT, SONGS_RECENT_OUTPUT } from "./op";
-import { ISongInfo } from "./type";
+import { SONGS_HITS_OUTPUT, SONGS_RECENT_OUTPUT, SONGS_TOP_ARTIST } from "./op";
+import { ISongInfo, ITopArtist } from "./type";
 import { apiResolver } from "../../../utils/apiResolver";
 import { SONGS_API } from "./uri";
 
@@ -16,6 +16,13 @@ export const songsApi = api.injectEndpoints({
     [SONGS_API.hits]: builder.query<ISongInfo[], void>({
       queryFn: async () => {
         const data = await apiResolver<ISongInfo[]>(SONGS_HITS_OUTPUT);
+        return { data };
+      },
+    }),
+
+    [SONGS_API.topArtist]: builder.query<ITopArtist, void>({
+      queryFn: async () => {
+        const data = await apiResolver<ITopArtist>(SONGS_TOP_ARTIST);
         return { data };
       },
     }),
