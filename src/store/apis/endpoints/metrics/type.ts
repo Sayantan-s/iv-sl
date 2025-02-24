@@ -25,6 +25,7 @@ export interface IMetricsPayload {
 export enum IPeriod {
   Weekly = "weekly",
   Monthly = "monthly",
+  Yearly = "yearly",
 }
 
 export interface IRevenue {

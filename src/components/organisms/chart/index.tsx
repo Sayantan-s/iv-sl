@@ -1,7 +1,9 @@
 import * as React from "react";
 import * as RechartsPrimitive from "recharts";
-
+import * as PieChart from "./PieChart";
+import * as BarChart from "./BarChart";
 import { clsx as cn } from "clsx";
+import { ChartLine } from "./LineChart";
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const;
@@ -187,7 +189,6 @@ const ChartTooltipContent = React.forwardRef<
             const key = `${nameKey || item.name || item.dataKey || "value"}`;
             const itemConfig = getPayloadConfigFromPayload(config, item, key);
             const indicatorColor = color || item.payload.fill || item.color;
-
             return (
               <div
                 key={item.dataKey}
@@ -196,7 +197,9 @@ const ChartTooltipContent = React.forwardRef<
                   indicator === "dot" && "items-center"
                 )}
               >
-                {formatter && item?.value !== undefined && item.name ? (
+                {formatter &&
+                item?.value !== undefined &&
+                item.name !== undefined ? (
                   formatter(item.value, item.name, item, index, item.payload)
                 ) : (
                   <>
@@ -360,4 +363,10 @@ export {
   ChartLegend as Legend,
   ChartLegendContent as LengendContent,
   ChartStyle as Style,
+};
+
+export const Chart = {
+  PieChart: PieChart.Chart,
+  LineChart: ChartLine,
+  BarChart: BarChart.Chart,
 };

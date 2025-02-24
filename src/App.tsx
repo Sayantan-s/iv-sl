@@ -1,15 +1,20 @@
 import { ChevronUpIcon, UserGroupIcon } from "@heroicons/react/24/solid";
 import { formatToK } from "./utils/formatToK";
 import { useMemo } from "react";
-import { Chart } from "./components/organisms/chart/BarChart";
-import { ChartPie } from "./components/organisms/chart/PieChart";
-import { ChartLine } from "./components/organisms/chart/LineChart";
 import { useGetRevenue } from "./store/hooks/useGetRevenue";
 import { useGetStreams, useGetUsers } from "./store/hooks/useGetMetrics";
 import { IPeriod } from "./store/apis/endpoints/metrics/type";
 import clsx from "clsx";
 import { useGetTopArtist } from "./store/hooks/useGetTopArtist";
 import { metricsApi } from "./store/apis/endpoints/metrics";
+import { Chart } from "./components/organisms/chart";
+import { useGetHitSongs } from "./store/hooks/useGetHitSongs";
+import { useGetLazyArtist } from "./store/hooks/useGetLazyArtist";
+
+interface IMaxIndex {
+  maxIndex: number | null;
+  currentMax: number;
+}
 
 const App = () => {
   const { data: users } = useGetUsers({ period: IPeriod.Monthly });
@@ -18,6 +23,8 @@ const App = () => {
   const { data: topArtist } = useGetTopArtist();
 
   const { data: chartData } = metricsApi.useGrowthQuery(2024);
+  const { data: barChartData } = useGetHitSongs();
+  const getArtist = useGetLazyArtist();
 
   const metricData = useMemo(
     () => [
@@ -38,6 +45,37 @@ const App = () => {
       },
     ],
     [users]
+  );
+
+  const revenueChartData = [
+    {
+      source: "subscriptions",
+      revenue: revenue.subscriptions,
+      fill: "var(--color-orange-500)",
+    },
+    { source: "ads", revenue: revenue.ads, fill: "var(--color-orange-900)" },
+  ];
+
+  const top5SongsData = barChartData?.map((data) => ({
+    streamCount: data.streamCount,
+    song: data.song,
+    artist: getArtist(data.artist),
+    fill: "var(--color-orange-300)",
+  }));
+
+  const max = top5SongsData.reduce(
+    (acc, curr, index) => {
+      const max = Math.max(curr.streamCount, acc.currentMax);
+      if (max !== acc.currentMax) {
+        acc.maxIndex = index;
+        acc.currentMax = max;
+      }
+      return acc;
+    },
+    {
+      activeIndex: null,
+      currentMax: 0,
+    } as unknown as IMaxIndex
   );
 
   return (
@@ -101,17 +139,6 @@ const App = () => {
                 <span className="text-orange-300 text-sm">streams</span>
               </p>
             </div>
-            {/* <p className="text-sm mt-1.5">
-            <span
-              className={clsx(
-                " font-medium",
-                growth <= 0 ? "text-rose-500" : ""
-              )}
-            >
-              {growth > 0 ? `+${growth}` : growth}%
-            </span>{" "}
-            <span className="text-gray-400">vs last {IPeriod.Monthly}</span>
-          </p> */}
           </div>
         </div>
         <div className="bg-white p-8">
@@ -134,10 +161,94 @@ const App = () => {
             </p>
           </div>
         </div>
-        <Chart />
-        <ChartPie />
+        <Chart.PieChart
+          nameKey="source"
+          dataKey="revenue"
+          data={revenueChartData}
+          config={{
+            revenue: {
+              label: "Revenue",
+            },
+            subscriptions: {
+              label: "Subscriptions",
+              color: "var(--color-orange-500)",
+            },
+            ads: { label: "Ads", color: "var(--color-orange-900)" },
+          }}
+          labelListClassName="fill-orange-50"
+          tooltipContentClassName="bg-white border border-gray-200 min-w min-w-[10rem] rounded-sm"
+          onPieClick={() => {}}
+          tooltipValueFormatter={(value, payload) => {
+            return (
+              <div
+                key={value.toString()}
+                className="flex justify-between w-full"
+              >
+                <div className="flex items-center gap-1.5">
+                  <span
+                    className={clsx("block w-3 h-3 rounded-sm")}
+                    style={{
+                      backgroundColor: payload.payload.fill,
+                    }}
+                  />
+                  <span className="text-gray-400">Revenue</span>
+                </div>
+                <span className="font-semibold text-gray-700">
+                  {" "}
+                  ${`${formatToK(+value)}`}
+                </span>
+              </div>
+            );
+          }}
+        />
+        {barChartData ? (
+          <Chart.BarChart
+            data={top5SongsData}
+            config={{
+              streamCount: {
+                label: "Streams",
+                color: "var(--color-orange-100)",
+              },
+            }}
+            dataKey="streamCount"
+            labelListClassName="fill-gray-900 font-semibold"
+            tooltipContentClassName="bg-white border border-gray-200 min-w min-w-[10rem] rounded-md"
+            tooltipValueFormatter={(value, label, { artist, song }) => {
+              return (
+                <div>
+                  <div className="font-semibold">
+                    <span className="text-orange-300">{label}</span>
+                    <span>{value}</span>
+                  </div>
+                  <div className="flex gap-2 mt-2">
+                    <div className="w-8 h-8 rounded-full relative overflow-hidden">
+                      <img
+                        src={
+                          "https://i.pinimg.com/1200x/fe/d7/9a/fed79a5e7fcb0aceb8d17059e7bd5f4c.jpg"
+                        }
+                        alt={`${song.id}_${song.name}`}
+                        className="absolute top-0 left-0 object-cover"
+                      />
+                      <div className="w-full h-full absolute top-0 left-0 bg-orange-500/30"></div>
+                    </div>
+                    <div>
+                      <p className="text-gray-700 font-semibold">{song.name}</p>
+                      <p className="text-gray-400">{artist.name}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            }}
+            activeConfig={{
+              stroke: "var(--color-orange-600)",
+              index: max.maxIndex!,
+              fill: "var(--color-orange-500)",
+            }}
+            radius={100}
+          />
+        ) : null}
         {chartData ? (
-          <ChartLine
+          <Chart.LineChart
             className="p-6"
             config={{
               activeUsers: { label: "Active Users" },
@@ -156,7 +267,30 @@ const App = () => {
             ]}
             xAxisKey="month"
             xAxisColor="var(--color-gray-500)"
-            cartesianGridColor="var(--color-gray-200)"
+            cartesianGridColor="var(--color-gray-100)"
+            tooltipContentClassName="bg-white border border-gray-200 min-w min-w-[10rem] rounded-sm"
+            tooltipValueFormatter={(value, label, color) => {
+              return (
+                <div
+                  key={value.toString()}
+                  className="flex justify-between w-full"
+                >
+                  <div className="flex items-center gap-1.5">
+                    <span
+                      className={clsx("block w-3 h-3 rounded-sm")}
+                      style={{
+                        backgroundColor: color,
+                      }}
+                    />
+                    <span className="text-gray-400">{label}</span>
+                  </div>
+                  <span className="font-semibold">
+                    {" "}
+                    {`${formatToK(+value)}`}
+                  </span>
+                </div>
+              );
+            }}
           />
         ) : null}
       </div>

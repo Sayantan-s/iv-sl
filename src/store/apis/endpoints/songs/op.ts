@@ -2,7 +2,7 @@ import { ISongInfo, ITopArtist } from "./type";
 
 const RECENT_SONGS: ISongInfo[] = [
   {
-    streamedDate: "2024-03-15T10:30:00Z",
+    lastStreamedOn: "2024-03-15T10:30:00Z",
     streamCount: 78,
     revenueSource: "subscriptions",
     song: {
@@ -25,7 +25,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-14T16:45:00Z",
+    lastStreamedOn: "2024-03-14T16:45:00Z",
     streamCount: 92,
     revenueSource: "subscriptions",
     song: {
@@ -48,7 +48,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-13T22:10:00Z",
+    lastStreamedOn: "2024-03-13T22:10:00Z",
     streamCount: 120,
     revenueSource: "ads",
     song: {
@@ -71,7 +71,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-12T09:20:00Z",
+    lastStreamedOn: "2024-03-12T09:20:00Z",
     streamCount: 68,
     revenueSource: "subscriptions",
     song: {
@@ -94,7 +94,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-11T18:05:00Z",
+    lastStreamedOn: "2024-03-11T18:05:00Z",
     streamCount: 85,
     revenueSource: "ads",
     song: {
@@ -117,7 +117,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-10T14:55:00Z",
+    lastStreamedOn: "2024-03-10T14:55:00Z",
     streamCount: 110,
     revenueSource: "subscriptions",
     song: {
@@ -140,7 +140,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-09T21:30:00Z",
+    lastStreamedOn: "2024-03-09T21:30:00Z",
     streamCount: 72,
     revenueSource: "ads",
     song: {
@@ -163,7 +163,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-08T12:40:00Z",
+    lastStreamedOn: "2024-03-08T12:40:00Z",
     streamCount: 98,
     revenueSource: "subscriptions",
     song: {
@@ -186,7 +186,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-07T19:15:00Z",
+    lastStreamedOn: "2024-03-07T19:15:00Z",
     streamCount: 135,
     revenueSource: "ads",
     song: {
@@ -209,7 +209,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-06T15:30:00Z",
+    lastStreamedOn: "2024-03-06T15:30:00Z",
     streamCount: 89,
     revenueSource: "subscriptions",
     song: {
@@ -232,7 +232,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-05T11:00:00Z",
+    lastStreamedOn: "2024-03-05T11:00:00Z",
     streamCount: 75,
     revenueSource: "ads",
     song: {
@@ -255,7 +255,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-04T17:45:00Z",
+    lastStreamedOn: "2024-03-04T17:45:00Z",
     streamCount: 60,
     revenueSource: "subscriptions",
     song: {
@@ -278,7 +278,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-03T08:30:00Z",
+    lastStreamedOn: "2024-03-03T08:30:00Z",
     streamCount: 55,
     revenueSource: "ads",
     song: {
@@ -301,7 +301,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-02T20:00:00Z",
+    lastStreamedOn: "2024-03-02T20:00:00Z",
     streamCount: 95,
     revenueSource: "subscriptions",
     song: {
@@ -324,7 +324,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-03-01T13:15:00Z",
+    lastStreamedOn: "2024-03-01T13:15:00Z",
     streamCount: 115,
     revenueSource: "ads",
     song: {
@@ -347,7 +347,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-02-28T09:45:00Z",
+    lastStreamedOn: "2024-02-28T09:45:00Z",
     streamCount: 63,
     revenueSource: "subscriptions",
     song: {
@@ -370,7 +370,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-02-27T16:20:00Z",
+    lastStreamedOn: "2024-02-27T16:20:00Z",
     streamCount: 81,
     revenueSource: "ads",
     song: {
@@ -393,7 +393,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-02-26T22:50:00Z",
+    lastStreamedOn: "2024-02-26T22:50:00Z",
     streamCount: 70,
     revenueSource: "subscriptions",
     song: {
@@ -416,7 +416,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-02-25T14:00:00Z",
+    lastStreamedOn: "2024-02-25T14:00:00Z",
     streamCount: 105,
     revenueSource: "ads",
     song: {
@@ -439,7 +439,7 @@ const RECENT_SONGS: ISongInfo[] = [
     },
   },
   {
-    streamedDate: "2024-02-24T10:10:00Z",
+    lastStreamedOn: "2024-02-24T10:10:00Z",
     streamCount: 66,
     revenueSource: "subscriptions",
     song: {
@@ -463,108 +463,112 @@ const RECENT_SONGS: ISongInfo[] = [
   },
 ];
 
-const TOP_SONGS: ISongInfo[] = [
+const TOP_SONGS_MONTHLY: ISongInfo[] = [
   {
-    streamedDate: "2024-03-16T14:00:00Z",
+    lastStreamedOn: "2024-03-16T14:00:00Z",
     streamCount: 150,
     revenueSource: "subscriptions",
     song: {
       id: "song_5a3b1c2d9e8f",
       name: "Flowers",
       genre: ["Pop", "Disco"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Miley_Cyrus_-_Flowers.png/220px-Miley_Cyrus_-_Flowers.png",
+      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     artist: {
       id: "artist_1f9e2d3c8b7a",
       name: "Miley Cyrus",
       genre: ["Pop", "Rock"],
       profilePic:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Miley_Cyrus_July_2023_by_Brian_Bowen_Smith.jpg/330px-Miley_Cyrus_July_2023_by_Brian_Bowen_Smith.jpg",
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     user: {
       id: "user_c7b8a9f0e1d2",
       name: "Ava Rodriguez",
-      profilePic: "https://example.com/images/ava_rodriguez_top.jpg",
+      profilePic:
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
   },
   {
-    streamedDate: "2024-03-16T13:30:00Z",
+    lastStreamedOn: "2024-03-16T13:30:00Z",
     streamCount: 145,
     revenueSource: "subscriptions",
     song: {
       id: "song_9d5e1f2a8b3c",
       name: "Kill Bill",
       genre: ["R&B", "Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/SZA_-_Kill_Bill.png/220px-SZA_-_Kill_Bill.png",
+      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     artist: {
       id: "artist_3b7a9c1d2e8f",
       name: "SZA",
       genre: ["R&B", "Soul"],
       profilePic:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SZA_at_the_Governors_Ball_Music_Festival_in_2023.jpg/330px-SZA_at_the_Governors_Ball_Music_Festival_in_2023.jpg",
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     user: {
       id: "user_e1d2c3b4a5f9",
       name: "Ethan Carter",
-      profilePic: "https://example.com/images/ethan_carter_top.jpg",
+      profilePic:
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
   },
   {
-    streamedDate: "2024-03-16T13:00:00Z",
+    lastStreamedOn: "2024-03-16T13:00:00Z",
     streamCount: 140,
     revenueSource: "ads",
     song: {
       id: "song_7c8d9a1b2e3f",
       name: "Boy's a liar Pt. 2",
       genre: ["Drill", "Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8a/PinkPantheress_and_Ice_Spice_-_Boy%27s_a_liar_Pt._2.png/220px-PinkPantheress_and_Ice_Spice_-_Boy%27s_a_liar_Pt._2.png",
+      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     artist: {
       id: "artist_b4a5f6e7d8c9",
       name: "PinkPantheress & Ice Spice",
       genre: ["Pop", "Drill"],
       profilePic:
-        "https://i.scdn.co/image/ab6761610000e5eb40a094499a971845a723843f",
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     user: {
       id: "user_f9e1d2c3b4a5",
       name: "Isabella Nguyen",
-      profilePic: "https://example.com/images/isabella_nguyen_top.jpg",
+      profilePic:
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
   },
   {
-    streamedDate: "2024-03-16T12:30:00Z",
+    lastStreamedOn: "2024-03-16T12:30:00Z",
     streamCount: 135,
     revenueSource: "subscriptions",
     song: {
       id: "song_3e2f1a9d8c7b",
       name: "Calm Down (Remix)",
       genre: ["Afrobeats", "Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Calm_Down_Remix_by_Rema_and_Selena_Gomez.jpeg/220px-Calm_Down_Remix_by_Rema_and_Selena_Gomez.jpeg",
+      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     artist: {
       id: "artist_a5f9e1d2c3b4",
       name: "Rema & Selena Gomez",
       genre: ["Afrobeats", "Pop"],
       profilePic:
-        "https://i.scdn.co/image/ab6761610000e5eb47b94c9184af894854442993",
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     user: {
       id: "user_9c8d7e6f5a1b",
       name: "Jackson Davis",
-      profilePic: "https://example.com/images/jackson_davis_top.jpg",
+      profilePic:
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
   },
   {
-    streamedDate: "2024-03-16T12:00:00Z",
+    lastStreamedOn: "2024-03-16T12:00:00Z",
     streamCount: 130,
     revenueSource: "ads",
     song: {
       id: "song_d8c9b7a5f1e2",
       name: "Die For You (Remix)",
       genre: ["R&B", "Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/The_Weeknd_and_Ariana_Grande_Die_For_You_Remix.jpg/220px-The_Weeknd_and_Ariana_Grande_Die_For_You_Remix.jpg",
+      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     artist: {
       id: "artist_e6f5a1b9c8d7",
@@ -576,125 +580,139 @@ const TOP_SONGS: ISongInfo[] = [
     user: {
       id: "user_a1b9c8d7e6f5",
       name: "Sophia Wilson",
-      profilePic: "https://example.com/images/sophia_wilson_top.jpg",
+      profilePic:
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
   },
+];
+
+const TOP_SONGS_YEARLY: ISongInfo[] = [
   {
-    streamedDate: "2024-03-16T11:30:00Z",
+    lastStreamedOn: "2024-03-16T11:30:00Z",
     streamCount: 125,
     revenueSource: "subscriptions",
     song: {
       id: "song_2a1b9c8d7e6f",
       name: "Last Night",
       genre: ["Country", "Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/Morgan_Wallen_-_Last_Night.png/220px-Morgan_Wallen_-_Last_Night.png",
+      pic: "hhttps://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     artist: {
       id: "artist_f5e1d2c3b4a9",
       name: "Morgan Wallen",
       genre: ["Country", "Pop Country"],
       profilePic:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Morgan_Wallen_cropped.jpg/330px-Morgan_Wallen_cropped.jpg",
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     user: {
       id: "user_d8c7b9a1f5e2",
       name: "Liam Garcia",
-      profilePic: "https://example.com/images/liam_garcia_top.jpg",
+      profilePic:
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
   },
   {
-    streamedDate: "2024-03-16T11:00:00Z",
+    lastStreamedOn: "2024-03-16T11:00:00Z",
     streamCount: 120,
     revenueSource: "ads",
     song: {
       id: "song_c3d4e5f9a1b2",
       name: "As It Was",
       genre: ["Pop", "Synth-pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/Harry_Styles_-_As_It_Was.png/220px-Harry_Styles_-_As_It_Was.png",
+      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     artist: {
       id: "artist_9e8f7a1b2c3d",
       name: "Harry Styles",
       genre: ["Pop", "Rock"],
       profilePic:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Harry_Styles_at_Love_On_Tour_in_Chicago_2022_%283%29.jpg/330px-Harry_Styles_at_Love_On_Tour_in_Chicago_2022_%283%29.jpg",
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     user: {
       id: "user_7a5f1e9d8c2b",
       name: "Mia Rodriguez",
-      profilePic: "https://example.com/images/mia_rodriguez_top.jpg",
+      profilePic:
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
   },
   {
-    streamedDate: "2024-03-16T10:30:00Z",
+    lastStreamedOn: "2024-03-16T10:30:00Z",
     streamCount: 115,
     revenueSource: "subscriptions",
     song: {
       id: "song_e8f7a5b1c9d2",
       name: "Creepin'",
       genre: ["Hip-Hop", "R&B"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b2/Metro_Boomin%2C_The_Weeknd_and_21_Savage_-_Creepin%27.png/220px-Metro_Boomin%2C_The_Weeknd_and_21_Savage_-_Creepin%27.png",
+      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     artist: {
       id: "artist_c2d3e4f5a1b9",
       name: "Metro Boomin, The Weeknd & 21 Savage",
       genre: ["Hip-Hop", "Trap"],
       profilePic:
-        "https://i.scdn.co/image/ab6761610000e5eb4e893c4684ff03a4d4a1a855",
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     user: {
       id: "user_b4a9c8d7e6f5",
       name: "Noah Adams",
-      profilePic: "https://example.com/images/noah_adams_top.jpg",
+      profilePic:
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
   },
   {
-    streamedDate: "2024-03-16T10:00:00Z",
+    lastStreamedOn: "2024-03-16T10:00:00Z",
     streamCount: 110,
     revenueSource: "ads",
     song: {
       id: "song_a1b2c3d9e8f7",
       name: "Unholy",
       genre: ["Pop", "Dark Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Sam_Smith_and_Kim_Petras_-_Unholy.png/220px-Sam_Smith_and_Kim_Petras_-_Unholy.png",
+      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     artist: {
       id: "artist_7a9c8d2e1f5b",
       name: "Sam Smith & Kim Petras",
       genre: ["Pop", "Vocal Pop"],
       profilePic:
-        "https://i.scdn.co/image/ab6761610000e5ebff4c797f7c14355580382648",
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     user: {
       id: "user_f5e2d1c3b4a9",
       name: "Chloe Baker",
-      profilePic: "https://example.com/images/chloe_baker_top.jpg",
+      profilePic:
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
   },
   {
-    streamedDate: "2024-03-16T09:30:00Z",
+    lastStreamedOn: "2024-03-16T09:30:00Z",
     streamCount: 105,
     revenueSource: "subscriptions",
     song: {
       id: "song_9c8d7e6f1a2b",
       name: "Anti-Hero",
       genre: ["Pop", "Folk-Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Taylor_Swift_-_Anti-Hero.png/220px-Taylor_Swift_-_Anti-Hero.png",
+      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     artist: {
       id: "artist_d1c2b9a5f6e7",
       name: "Taylor Swift",
       genre: ["Pop", "Country"],
       profilePic:
-        "https://i.pinimg.com/1200x/fe/d7/9a/fed79a5e7fcb0aceb8d17059e7bd5f4c.jpg",
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
     user: {
       id: "user_3b4a9c8d7e6f",
       name: "Daniel Perez",
-      profilePic: "https://example.com/images/daniel_perez_top.jpg",
+      profilePic:
+        "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
     },
   },
 ];
+
+const TOP_SONGS = {
+  monthly: TOP_SONGS_MONTHLY,
+  yearly: TOP_SONGS_YEARLY,
+};
 
 const TOP_ARTIST: ITopArtist = {
   id: "artist_d1c2b9a5f6e7",

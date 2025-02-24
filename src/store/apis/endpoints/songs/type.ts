@@ -1,8 +1,10 @@
+import { SONGS_HITS_OUTPUT } from "./op";
+
 export interface ISongInfo {
   song: ISong;
   artist: IArtist;
   user: IUser;
-  streamedDate: string;
+  lastStreamedOn: string;
   streamCount: number;
   revenueSource: IRevenueSource;
 }
@@ -36,3 +38,5 @@ export interface IUser {
 export interface ITopArtist extends IArtist {
   totalStreams: number;
 }
+
+export type TOP_SONGS_INPUT = keyof typeof SONGS_HITS_OUTPUT;

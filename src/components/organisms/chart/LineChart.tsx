@@ -2,6 +2,12 @@ import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 
 import { ChartConfig, Container, Tooltip, TooltipContent } from ".";
 import clsx from "clsx";
+import {
+  Formatter,
+  NameType,
+  ValueType,
+} from "recharts/types/component/DefaultTooltipContent";
+import { JSX, useMemo } from "react";
 
 interface IChartConventions {
   dataKey: string;
@@ -16,6 +22,12 @@ interface Props<T> {
   xAxisColor: string;
   cartesianGridColor: string;
   className?: string;
+  tooltipContentClassName?: string;
+  tooltipValueFormatter: (
+    value: ValueType,
+    label: string,
+    color: string
+  ) => JSX.Element;
 }
 
 export const ChartLine = <T,>({
@@ -26,7 +38,26 @@ export const ChartLine = <T,>({
   xAxisKey,
   cartesianGridColor,
   className,
+  tooltipValueFormatter,
+  tooltipContentClassName,
 }: Props<T>) => {
+  const styles = useMemo(
+    () => ({
+      left: 12,
+      right: 12,
+    }),
+    []
+  );
+
+  const handleTooltipFormatter: Formatter<ValueType, NameType> = (
+    value,
+    key,
+    payload
+  ) => {
+    const label = config[key].label as string;
+    return tooltipValueFormatter(value, label, payload.color!);
+  };
+
   return (
     <Container
       config={config}
@@ -35,14 +66,7 @@ export const ChartLine = <T,>({
         className
       )}
     >
-      <LineChart
-        accessibilityLayer
-        data={data}
-        margin={{
-          left: 12,
-          right: 12,
-        }}
-      >
+      <LineChart accessibilityLayer data={data} margin={styles}>
         <CartesianGrid vertical={false} stroke={cartesianGridColor} />
         <XAxis
           dataKey={xAxisKey}
@@ -52,9 +76,20 @@ export const ChartLine = <T,>({
           tickFormatter={(value) => value.slice(0, 3)}
           stroke={xAxisColor}
         />
-        <Tooltip cursor={false} content={<TooltipContent hideLabel />} />
+        <Tooltip
+          cursor={false}
+          content={
+            <TooltipContent
+              className={tooltipContentClassName}
+              hideLabel
+              hideIndicator
+              formatter={handleTooltipFormatter}
+            />
+          }
+        />
         {convention.map(({ dataKey, color }) => (
           <Line
+            key={dataKey}
             dataKey={dataKey}
             type="monotone"
             stroke={color}

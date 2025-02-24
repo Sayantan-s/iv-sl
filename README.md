@@ -14,17 +14,10 @@ Start the dev server:
 bun serve
 ```
 
-### Security
-
-- API Proxy
-
-### DX (PerfOps)
-
-- Lazy compilation
-
 ### PerfOps
 
 - Normalized State shape
+- Lazy compilation (Easy cold starts)
 
 ### Tables
 
