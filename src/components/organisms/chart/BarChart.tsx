@@ -4,16 +4,20 @@ import { ChartConfig, Container, Tooltip, TooltipContent } from ".";
 import {
   Formatter,
   NameType,
-  Payload,
   ValueType,
 } from "recharts/types/component/DefaultTooltipContent";
-import { JSX } from "react";
+import { JSX, useCallback } from "react";
 import clsx from "clsx";
+
+interface IShadeProps {
+  upShade: string;
+  downShade: string;
+}
 
 interface IActiveConfig {
   index: number;
-  stroke: string;
-  fill: string;
+  activeShades: IShadeProps;
+  inactiveShades: IShadeProps;
 }
 interface Props<T> {
   config: ChartConfig;
@@ -51,6 +55,26 @@ export const Chart = <T,>({
     return tooltipValueFormatter(value, label, payload.payload);
   };
 
+  const barShape = useCallback(
+    (props: Record<string, any>) => {
+      const { x, y, width, height } = props;
+      return (
+        <g>
+          <rect
+            x={x}
+            y={y}
+            width={width}
+            height={height}
+            fill={"url(#pattern-stripe)"}
+            rx={radius}
+            ry={radius}
+          />
+        </g>
+      );
+    },
+    [radius]
+  );
+
   return (
     <Container
       config={config}
@@ -66,6 +90,55 @@ export const Chart = <T,>({
           top: 20,
         }}
       >
+        <defs>
+          <pattern
+            id="pattern-stripe-active"
+            width={8}
+            height={8}
+            patternUnits="userSpaceOnUse"
+            patternTransform="rotate(40)"
+          >
+            <rect
+              width="4"
+              height="8"
+              fill={
+                activeConfig.activeShades.upShade || "var(--color-orange-500)"
+              }
+            />
+            <rect
+              x="4"
+              width="4"
+              height="8"
+              fill={
+                activeConfig.activeShades.downShade || "var(--color-orange-400)"
+              }
+            />
+          </pattern>
+          <pattern
+            id="pattern-stripe"
+            width={8}
+            height={8}
+            patternUnits="userSpaceOnUse"
+            patternTransform="rotate(40)"
+          >
+            <rect
+              width="4"
+              height="8"
+              fill={
+                activeConfig.inactiveShades.downShade ||
+                "var(--color-orange-50)"
+              }
+            />
+            <rect
+              x="4"
+              width="4"
+              height="8"
+              fill={
+                activeConfig.inactiveShades.upShade || "var(--color-orange-100)"
+              }
+            />
+          </pattern>
+        </defs>
         <Tooltip
           cursor={false}
           content={
@@ -79,20 +152,22 @@ export const Chart = <T,>({
         />
         <Bar
           dataKey={dataKey}
-          fill="var(--color-desktop)"
           radius={radius}
           activeIndex={activeConfig.index}
+          fill="url(#pattern-stripe)"
+          className="cursor-pointer"
           activeBar={({ ...props }) => {
             return (
               <Rectangle
                 {...props}
-                stroke={activeConfig.stroke}
                 strokeDasharray={4}
                 strokeDashoffset={4}
-                fill={activeConfig.fill}
+                fill={"url(#pattern-stripe-active)"}
+                radius={radius}
               />
             );
           }}
+          shape={barShape}
         >
           <LabelList
             position="top"

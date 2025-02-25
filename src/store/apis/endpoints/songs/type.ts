@@ -40,3 +40,5 @@ export interface ITopArtist extends IArtist {
 }
 
 export type TOP_SONGS_INPUT = keyof typeof SONGS_HITS_OUTPUT;
+
+

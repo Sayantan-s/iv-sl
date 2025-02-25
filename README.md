@@ -19,6 +19,7 @@ bun serve
 - Normalized State shape
 - Lazy compilation (Easy cold starts)
 
-### Tables
+### TradeOffs
 
-- Could have used proper semanticity for tables
+- Could have used proper semanticity for tables.
+- Could have kept the data table filters state colocated to a component, didn't because if it's a highly interactive dashboard, one might need to decouple the business logic from the view + global state might come in handy whereever in the application.

@@ -1,13 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initialStateMSongs } from "./state";
 import { recentsExtraReducers } from "./recents.reducers";
 import { hitsExtraReducers } from "./hits.reducers";
 import { topArtistExtraReducer } from "./topartist.reducers";
+import { ITableControllerState } from "./type";
 
 export const songsSlice = createSlice({
   name: "musicInsights",
   initialState: initialStateMSongs,
-  reducers: {},
+  reducers: {
+    setSearchFilters: (
+      state,
+      action: PayloadAction<ITableControllerState["filters"]["search"]>
+    ) => {
+      state.controllers.filters.search = action.payload;
+    },
+  },
   extraReducers(builder) {
     recentsExtraReducers(builder);
     hitsExtraReducers(builder);
