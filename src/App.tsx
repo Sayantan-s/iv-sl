@@ -4,7 +4,6 @@ import { useMemo } from "react";
 import { useGetRevenue } from "./store/hooks/useGetRevenue";
 import { useGetStreams, useGetUsers } from "./store/hooks/useGetMetrics";
 import { IPeriod } from "./store/apis/endpoints/metrics/type";
-import clsx from "clsx";
 import { useGetTopArtist } from "./store/hooks/useGetTopArtist";
 import { metricsApi } from "./store/apis/endpoints/metrics";
 import { Chart } from "./components/organisms/chart";

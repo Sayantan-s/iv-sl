@@ -4,24 +4,29 @@ import { useGetLazUser } from "../../../store/hooks/useGetLazyUser";
 import { useGetRecentSongs } from "../../../store/hooks/useGetRecentSongs";
 import { formatDate } from "../../../utils/formatDate";
 import { songsApi } from "../../../store/apis/endpoints/songs";
-import { Filters } from "./Filters";
+import { SearchFilters } from "./SearchFilters";
+import { useGetControllers } from "../../../store/hooks/useGetFilters";
+import { SortFilters } from "./SortFilters";
 
 export const Datatable: FC = () => {
-  songsApi.useSongsQuery();
+  const controls = useGetControllers();
+
+  songsApi.useSongsQuery(controls);
 
   const { data } = useGetRecentSongs();
   const getUser = useGetLazUser();
   const getArtist = useGetLazyArtist();
 
-  // Sort of last streamed date and stream count
-  // filter by artist or song or all
+  // Sort of last streamed date OR stream count
+  // filter by artist AND song | artist OR song
   // filter by revenue source
 
   return (
     <div className="flex-[0.5]">
       <div className="flex justify-between">
         <h1>Recently Streamed Songs</h1>
-        <Filters />
+        <SortFilters />
+        <SearchFilters />
       </div>
       <div>
         {data.map(

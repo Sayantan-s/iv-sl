@@ -119,6 +119,11 @@ const MetricCard: FC<IMetric> = ({
         </span>{" "}
         <span className="text-gray-400">vs last {IPeriod.Monthly}</span>
       </p>
+      <div
+        className={`absolute inset-0 -z-10 rounded-xl p-px bg-linear-to-br from-transparent via-gray-100/50 to-transparent dark:via-white/10 ${
+          true ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+        } transition-opacity duration-300`}
+      />
     </div>
   );
 };

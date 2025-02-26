@@ -25,12 +25,9 @@ export const dataTableController: ITableControllerState = {
     search: {
       value: "",
       by: [],
-      revenueType: [],
+      revenueType: null,
     },
-    sort: {
-      direction: null,
-      by: null,
-    },
+    sort: [],
   },
 };
 

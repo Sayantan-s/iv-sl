@@ -22,6 +22,15 @@ export enum Direction {
   DSC = "dsc",
 }
 
+export enum ISortByItemKey {
+  LastStreamedOn = "lastStreamedOn",
+  StreamCount = "streamCount",
+}
+export interface ISortByItem {
+  direction: Direction;
+  key: ISortByItemKey;
+}
+
 export interface ITableControllerState {
   page: number;
   limit: number;
@@ -29,11 +38,8 @@ export interface ITableControllerState {
     search: {
       value: string;
       by: ISearchBy[];
-      revenueType: ERevenueSource[];
+      revenueType: ERevenueSource | null;
     };
-    sort: {
-      by: SortBy | null;
-      direction: Direction | null;
-    };
+    sort: ISortByItem[];
   };
 }

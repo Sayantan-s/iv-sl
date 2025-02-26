@@ -15,6 +15,12 @@ export const songsSlice = createSlice({
     ) => {
       state.controllers.filters.search = action.payload;
     },
+    setSortFilters: (
+      state,
+      action: PayloadAction<ITableControllerState["filters"]["sort"]>
+    ) => {
+      state.controllers.filters.sort = action.payload;
+    },
   },
   extraReducers(builder) {
     recentsExtraReducers(builder);
