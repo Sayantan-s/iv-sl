@@ -24,6 +24,8 @@ import { useDispatch } from "../../../store";
 import { songsActions } from "../../../store/slices/songs";
 import { useGetControllers } from "../../../store/hooks/useGetFilters";
 import { CheckIcon } from "@heroicons/react/24/solid";
+import { FunnelIcon } from "@heroicons/react/24/outline";
+
 import clsx from "clsx";
 import { find, map, filter, get, join, trim } from "es-toolkit/compat";
 
@@ -94,73 +96,110 @@ export const SearchFilters = () => {
     ? join(map(searchByFilters, "label"), ", ")
     : "Select";
 
+  const isFiltersApplied =
+    get(controls, "filters.search.revenueType") ||
+    get(controls, "controls.filters.search.value");
+
   return (
     <div className="flex text-sm">
       <Popover className={"relative"}>
-        <PopoverButton>Filter</PopoverButton>
+        <PopoverButton
+          className={clsx(
+            "flex gap-1 items-center cursor-pointer focus:outline-orange-100 px-2 py-1 rounded-md",
+            isFiltersApplied ? "text-orange-500 focus:bg-orange-100" : ""
+          )}
+        >
+          <FunnelIcon className="size-4" />
+          <span>{isFiltersApplied ? `Filters Applied` : "Filter"}</span>
+        </PopoverButton>
         <PopoverPanel
-          className={"absolute bg-white shadow-md shadow-gray-700/10 p-2"}
+          className={
+            "absolute z-40  mt-2 bg-white border border-gray-100 rounded-md shadow-md shadow-gray-700/10 min-w-[20rem]"
+          }
         >
           {({ close }) => (
             <Fragment>
-              <div className="flex">
-                <Listbox
-                  value={searchByFilters}
-                  onChange={setSearchByFilters}
-                  multiple
-                >
-                  <ListboxButton ref={listboxButtonRef}>
-                    {uiButtonLabel}
-                  </ListboxButton>
-                  <ListboxOptions anchor="bottom" className={"bg-white"}>
-                    {FILTER_SEARCH.map((filter) => (
-                      <ListboxOption
-                        key={filter.id}
-                        value={filter}
-                        className="data-[focus]:bg-blue-100"
-                      >
-                        {filter.name}
-                      </ListboxOption>
-                    ))}
-                  </ListboxOptions>
-                </Listbox>
-                <div>
-                  <Input
-                    ref={inputRef}
-                    type="text"
-                    placeholder="search"
-                    value={searchedValueFilter}
-                    onChange={handleChange}
-                    disabled={!!!searchByFilters.length}
-                  />
-                </div>
-              </div>
-              <RadioGroup
-                value={revenueSourceFilter!}
-                onChange={setRevenueSourceFilter}
-                aria-label="Revenue Source"
-              >
-                {CHECKBOX_SEARCH.map((checkbox) => (
-                  <Field key={checkbox.id} className={"flex gap-1.5"}>
-                    <Radio value={checkbox} as={Fragment}>
-                      {({ checked }) => (
-                        <span
-                          className={clsx(
-                            "w-5 h-5 rounded-full flex items-center justify-center p-1 text-white",
-                            checked ? "bg-orange-500" : "bg-transparent"
-                          )}
+              <div className="p-3 border-b border-b-gray-100">
+                <div className="flex gap-2 w-full">
+                  <Listbox
+                    value={searchByFilters}
+                    onChange={setSearchByFilters}
+                    multiple
+                  >
+                    <ListboxButton
+                      ref={listboxButtonRef}
+                      className={
+                        "flex-[0.3] py-1 border focus:outline-orange-300 text-xs border-gray-100 bg-gray-50 rounded-md gap-1.5 flex items-center justify-center"
+                      }
+                    >
+                      {uiButtonLabel}
+                    </ListboxButton>
+                    <ListboxOptions
+                      anchor="bottom"
+                      className={
+                        "bg-white mt-1.5 w-[10rem] border border-gray-100 shadow-md shadow-gray-500/10 rounded-md"
+                      }
+                    >
+                      {FILTER_SEARCH.map((filter) => (
+                        <ListboxOption
+                          key={filter.id}
+                          value={filter}
+                          className="group w-full data-[focus]:bg-orange-100 data-[focus]:text-orange-600 disabled:opacity-50 flex justify-between items-center text-sm text-gray-700 hover:bg-orange-100 hover:text-orange-600 px-2 py-1"
                         >
-                          {checked ? <CheckIcon /> : null}
-                        </span>
-                      )}
-                    </Radio>
-                    <Label>{checkbox.label}</Label>
-                  </Field>
-                ))}
-              </RadioGroup>
-              <div>
-                <button>Clear</button>
-                <button onClick={handleApplyFilters(close)}>Apply</button>
+                          <span>{filter.label}</span>
+                          <CheckIcon className="size-3 group-data-[selected]:visible invisible" />
+                        </ListboxOption>
+                      ))}
+                    </ListboxOptions>
+                  </Listbox>
+                  <div className="flex-[0.7]">
+                    <Input
+                      ref={inputRef}
+                      type="text"
+                      placeholder={"search. eg. taylor"}
+                      value={searchedValueFilter}
+                      onChange={handleChange}
+                      disabled={!!!searchByFilters.length}
+                      className={
+                        "w-full h-full px-2 disabled:opacity-75 disabled:cursor-not-allowed  focus:outline-orange-300 border border-gray-100 text-gray-700 rounded-md"
+                      }
+                    />
+                  </div>
+                </div>
+                <RadioGroup
+                  value={revenueSourceFilter!}
+                  onChange={setRevenueSourceFilter}
+                  aria-label="Revenue Source"
+                  className={"flex items-center mt-3 space-x-3"}
+                >
+                  {CHECKBOX_SEARCH.map((checkbox) => (
+                    <Field key={checkbox.id} className={"flex gap-1.5"}>
+                      <Radio value={checkbox} as={Fragment}>
+                        {({ checked }) => (
+                          <span
+                            className={clsx(
+                              "w-5 h-5 rounded-md flex items-center justify-center p-1 text-white",
+                              checked
+                                ? "bg-orange-500 border border-transparent"
+                                : "bg-transparent border border-gray-200"
+                            )}
+                          >
+                            <CheckIcon className="size-3" />
+                          </span>
+                        )}
+                      </Radio>
+                      <Label>{checkbox.label}</Label>
+                    </Field>
+                  ))}
+                </RadioGroup>
+              </div>
+              <div className="px-3 py-1.5 bg-gray-50 flex justify-end">
+                <button
+                  onClick={handleApplyFilters(close)}
+                  className="bg-gray-900 px-3 py-1 text-xs text-gray-100 shadow shadow-gray-900/10  rounded-md"
+                >
+                  Apply filter
+                </button>
               </div>
             </Fragment>
           )}

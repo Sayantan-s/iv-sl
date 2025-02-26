@@ -60,7 +60,7 @@ const App = () => {
 
   return (
     <div className="w-full bg-gray-100 min-h-screen py-10">
-      <div className="mx-auto w-full max-w-[1300px] rounded-2xl overflow-hidden bg-white p-6 space-y-8">
+      <div className="mx-auto w-full max-w-[1300px] rounded-2xl overflow-hidden bg-white p-6 space-y-4">
         <div className="flex gap-4">
           <RevenueCard />
           <MetricsCards />

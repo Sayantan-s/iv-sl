@@ -21,6 +21,9 @@ export const songsSlice = createSlice({
     ) => {
       state.controllers.filters.sort = action.payload;
     },
+    incrementPage: (state) => {
+      state.controllers.page = state.controllers.page + 1;
+    },
   },
   extraReducers(builder) {
     recentsExtraReducers(builder);

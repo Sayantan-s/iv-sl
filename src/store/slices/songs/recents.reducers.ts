@@ -13,7 +13,11 @@ export const recentsExtraReducers = (
   builder.addMatcher(
     songsApi.endpoints.songs.matchFulfilled,
     (state, action) => {
-      songsAdapter.addMany(
+      if (!action.payload.length) return;
+      state.songs.recents.ids.push(
+        ...action.payload.map((recent) => recent.song.id)
+      );
+      songsAdapter.setMany(
         state.songs,
         action.payload.map((state) => ({
           ...state,
@@ -21,7 +25,6 @@ export const recentsExtraReducers = (
           user: state.user.id,
         }))
       );
-      state.songs.recents.ids = action.payload.map((recent) => recent.song.id);
       artistsAdapter.addMany(
         state.artists,
         action.payload.map((songInfo) => songInfo.artist)

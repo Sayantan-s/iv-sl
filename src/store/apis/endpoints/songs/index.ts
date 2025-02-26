@@ -3,8 +3,39 @@ import { SONGS_HITS_OUTPUT, SONGS_RECENT_OUTPUT, SONGS_TOP_ARTIST } from "./op";
 import { ISongInfo, ITopArtist, TOP_SONGS_INPUT } from "./type";
 import { apiResolver } from "../../../utils/apiResolver";
 import { SONGS_API } from "./uri";
-import { ITableControllerState } from "../../../slices/songs/type";
-import { filter, get, some, includes, toLower } from "es-toolkit/compat";
+import { Direction, ITableControllerState } from "../../../slices/songs/type";
+import {
+  filter,
+  get,
+  some,
+  includes,
+  toLower,
+  orderBy,
+  map,
+  slice,
+} from "es-toolkit/compat";
+import { getTime, isValid, parseISO } from "date-fns";
+
+interface SortConfig<T> {
+  key: keyof T;
+  direction: Direction;
+}
+
+const isDateString = (value: unknown): boolean => {
+  if (typeof value !== "string") return false;
+  return isValid(parseISO(value));
+};
+
+const sortData = <T>(data: T[], sortConfig: SortConfig<T>[]) => {
+  return orderBy(
+    data,
+    sortConfig.map(({ key }) => (item) => {
+      const value = item[key];
+      return isDateString(value) ? getTime(parseISO(value as string)) : value;
+    }),
+    sortConfig.map(({ direction }) => (direction === "asc" ? "asc" : "desc"))
+  );
+};
 
 export const songsApi = api.injectEndpoints({
   endpoints: (builder) => ({
@@ -25,7 +56,18 @@ export const songsApi = api.injectEndpoints({
             )
           );
 
-        const data = await apiResolver<ISongInfo[]>(SONGS_RECENT_OUTPUT);
+        //:: sort query
+        const sortQ = get(config, "filters.sort");
+        if (sortQ.length) result = sortData(result, map(sortQ));
+
+        //:: pagination
+        const { page, limit } = config;
+        const [start, end] = [(page - 1) * limit, page * limit];
+
+        console.log(start, end, "PAGINATION");
+
+        result = slice(result, start, end);
+        const data = await apiResolver<ISongInfo[]>(result);
         return { data };
       },
     }),
