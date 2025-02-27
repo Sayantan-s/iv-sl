@@ -1,3 +1,4 @@
+import { IPeriod } from "../metrics/type";
 import { ISongInfo, ITopArtist } from "./type";
 
 const RECENT_SONGS: ISongInfo[] = [
@@ -709,9 +710,9 @@ const TOP_SONGS_YEARLY: ISongInfo[] = [
   },
 ];
 
-const TOP_SONGS = {
-  monthly: TOP_SONGS_MONTHLY,
-  yearly: TOP_SONGS_YEARLY,
+const TOP_SONGS: Record<IPeriod, ISongInfo[]> = {
+  [IPeriod.Monthly]: TOP_SONGS_MONTHLY,
+  [IPeriod.Yearly]: TOP_SONGS_YEARLY,
 };
 
 const TOP_ARTIST: ITopArtist = {

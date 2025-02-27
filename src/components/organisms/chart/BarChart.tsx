@@ -33,6 +33,7 @@ interface Props<T> {
     payload: T
   ) => JSX.Element;
   radius?: number;
+  bgGfx?: boolean;
 }
 
 export const Chart = <T,>({
@@ -45,6 +46,7 @@ export const Chart = <T,>({
   tooltipContentClassName,
   activeConfig,
   radius = 8,
+  bgGfx,
 }: Props<T>) => {
   const handleTooltipFormatter: Formatter<ValueType, NameType> = (
     value,
@@ -79,8 +81,12 @@ export const Chart = <T,>({
     <Container
       config={config}
       className={clsx(
-        `w-full mx-auto p-6 bg-[linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5),linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5)] bg-[length:10px_10px] bg-white`,
-        className
+        `w-full mx-auto p-6 
+       bg-white`,
+        className,
+        bgGfx
+          ? "bg-[linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5),linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5)] bg-[length:10px_10px]"
+          : null
       )}
     >
       <BarChart

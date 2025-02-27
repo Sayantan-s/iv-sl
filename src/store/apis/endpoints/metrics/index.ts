@@ -1,6 +1,12 @@
 import { api } from "../..";
-import { METRIC_OUTPUT, REVENUE_OUTPUT, USER_GROW_OUTPUT } from "./op";
-import { IPeriodBasedMetrics, IRevenue, IUserGrowth } from "./type";
+import { METRIC_OUTPUT, REVENUE_OUTPUT, USER_GROWTH_OUTPUT } from "./op";
+import {
+  EUserGrowthPeriod,
+  IPeriodBasedMetrics,
+  IRevenue,
+  IUserGrowth,
+  IUserGrowthMetrics,
+} from "./type";
 import { apiResolver } from "../../../utils/apiResolver";
 import { METRICS_API } from "./uri";
 
@@ -20,11 +26,14 @@ export const metricsApi = api.injectEndpoints({
       },
     }),
 
-    [METRICS_API.growth]: builder.query<IUserGrowth, number>({
-      queryFn: async (year: number) => {
-        const OP = USER_GROW_OUTPUT.find((doc) => doc.year === year);
+    [METRICS_API.growth]: builder.query<
+      IUserGrowthMetrics[],
+      EUserGrowthPeriod
+    >({
+      queryFn: async (periodGap) => {
+        const OP = USER_GROWTH_OUTPUT[periodGap];
         if (!OP) throw new Error("No Year Found!");
-        const data = await apiResolver<IUserGrowth>(OP);
+        const data = await apiResolver<IUserGrowthMetrics[]>(OP);
         return { data };
       },
     }),

@@ -4,7 +4,7 @@ export const apiResolver = <TOutput>(
   op: TOutput,
   cb?: (inps: TOutput) => TOutput
 ): Promise<TOutput> => {
-  const randomNumber = Math.floor(Math.random() * 6) + 1;
+  const randomNumber = Math.floor(Math.random() * 2) + 1;
   const wait = randomNumber * 1000;
   return new Promise((res) => delay(() => res(cb ? cb(op) : op), wait));
 };

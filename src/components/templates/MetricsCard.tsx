@@ -48,7 +48,7 @@ export const MetricsCards = () => {
   return (
     <div className="grid grid-cols-2 grid-rows-2 gap-4 shadow shadow-gray-400/10 bg-white flex-[0.55]">
       {metricData.map((metric) => (
-        <MetricCard {...metric} label={metric.label} />
+        <MetricCard {...metric} key={metric.label} />
       ))}
       <TopArtistCard />
     </div>

@@ -6,6 +6,7 @@ import {
   usersAdapter,
 } from "./state";
 import { songsApi } from "../../apis/endpoints/songs";
+import { map } from "es-toolkit/compat";
 
 export const hitsExtraReducers = (
   builder: ActionReducerMapBuilder<typeof initialStateMSongs>
@@ -13,22 +14,24 @@ export const hitsExtraReducers = (
   builder.addMatcher(
     songsApi.endpoints.hits.matchFulfilled,
     (state, action) => {
+      const docs = action.payload.entities;
+      const docIds = action.payload.ids;
       songsAdapter.addMany(
         state.songs,
-        action.payload.map((state) => ({
-          ...state,
-          artist: state.artist.id,
-          user: state.user.id,
+        map(docIds, (docId) => ({
+          ...docs[docId],
+          artist: docs[docId].artist.id,
+          user: docs[docId].user.id,
         }))
       );
-      state.songs.hits.ids = action.payload.map((hit) => hit.song.id);
+      state.songs.hits.ids = map(docIds, (docId) => docs[docId].song.id);
       artistsAdapter.addMany(
         state.artists,
-        action.payload.map((songInfo) => songInfo.artist)
+        map(docIds, (docId) => docs[docId].artist)
       );
       usersAdapter.addMany(
         state.users,
-        action.payload.map((songInfo) => songInfo.user)
+        map(docIds, (docId) => docs[docId].user)
       );
     }
   );

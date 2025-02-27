@@ -6,20 +6,44 @@ import {
   usersAdapter,
 } from "./state";
 import { songsApi } from "../../apis/endpoints/songs";
+import { map } from "es-toolkit/compat";
 
 export const recentsExtraReducers = (
   builder: ActionReducerMapBuilder<typeof initialStateMSongs>
 ) => {
+  builder.addMatcher(songsApi.endpoints.songs.matchPending, (state) => {
+    state.songs.recents.loading = true;
+    state.songs.recents.error = "";
+  });
+
+  builder.addMatcher(songsApi.endpoints.hits.matchPending, (state) => {
+    state.songs.hits.loading = true;
+    state.songs.hits.error = "";
+  });
+
+  builder.addMatcher(songsApi.endpoints.songs.matchRejected, (state) => {
+    state.songs.recents.loading = false;
+    state.songs.recents.error = "Something wen't wrong";
+    state.controllers.next = false;
+  });
+
+  builder.addMatcher(songsApi.endpoints.hits.matchRejected, (state) => {
+    state.songs.hits.loading = false;
+    state.songs.hits.error = "Something wen't wrong";
+    state.controllers.next = false;
+  });
+
   builder.addMatcher(
     songsApi.endpoints.songs.matchFulfilled,
     (state, action) => {
-      if (!action.payload.length) return;
-      state.songs.recents.ids.push(
-        ...action.payload.map((recent) => recent.song.id)
+      state.controllers.next = !!action.payload.data.length;
+      state.songs.recents.ids = map(
+        action.payload.data,
+        (recent) => recent.song.id
       );
-      songsAdapter.setMany(
+      songsAdapter.addMany(
         state.songs,
-        action.payload.map((state) => ({
+        map(action.payload.data, (state) => ({
           ...state,
           artist: state.artist.id,
           user: state.user.id,
@@ -27,12 +51,14 @@ export const recentsExtraReducers = (
       );
       artistsAdapter.addMany(
         state.artists,
-        action.payload.map((songInfo) => songInfo.artist)
+        map(action.payload.data, (songInfo) => songInfo.artist)
       );
       usersAdapter.addMany(
         state.users,
-        action.payload.map((songInfo) => songInfo.user)
+        map(action.payload.data, (songInfo) => songInfo.user)
       );
+      state.songs.recents.loading = false;
+      state.songs.recents.error = "";
     }
   );
 };

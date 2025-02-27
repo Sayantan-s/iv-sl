@@ -23,7 +23,6 @@ export interface IMetricsPayload {
 }
 
 export enum IPeriod {
-  Weekly = "weekly",
   Monthly = "monthly",
   Yearly = "yearly",
 }
@@ -35,13 +34,20 @@ export interface IRevenue {
   growth: number;
 }
 
-interface IUserGrowthMetrics {
+export interface IUserGrowthMetrics {
   month: string;
   totalUsers: number;
   activeUsers: number;
 }
 
+export enum EUserGrowthPeriod {
+  THREE_MO = "3M",
+  SIX_MO = "6M",
+  ONE_Y = "1Y",
+}
+
 export interface IUserGrowth {
-  year: number;
-  data: IUserGrowthMetrics[];
+  "3M": IUserGrowthMetrics[];
+  "6M": IUserGrowthMetrics[];
+  "1Y": IUserGrowthMetrics[];
 }

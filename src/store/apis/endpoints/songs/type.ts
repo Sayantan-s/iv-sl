@@ -9,6 +9,13 @@ export interface ISongInfo {
   revenueSource: IRevenueSource;
 }
 
+export interface IRecentSongs {
+  data: ISongInfo[];
+  page: number;
+  limit: number;
+  next: boolean;
+}
+
 export type IRevenueSource = "subscriptions" | "ads";
 export enum ERevenueSource {
   Subscriptions = "subscriptions",
@@ -40,5 +47,3 @@ export interface ITopArtist extends IArtist {
 }
 
 export type TOP_SONGS_INPUT = keyof typeof SONGS_HITS_OUTPUT;
-
-

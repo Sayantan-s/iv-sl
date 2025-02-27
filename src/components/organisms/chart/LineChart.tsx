@@ -28,6 +28,7 @@ interface Props<T> {
     label: string,
     color: string
   ) => JSX.Element;
+  bgGfx?: boolean;
 }
 
 export const ChartLine = <T,>({
@@ -40,6 +41,7 @@ export const ChartLine = <T,>({
   className,
   tooltipValueFormatter,
   tooltipContentClassName,
+  bgGfx,
 }: Props<T>) => {
   const styles = useMemo(
     () => ({
@@ -62,7 +64,11 @@ export const ChartLine = <T,>({
     <Container
       config={config}
       className={clsx(
-        "w-full mx-auto bg-[linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5),linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5)] bg-[length:10px_10px] bg-white",
+        `w-full mx-auto 
+        bg-white`,
+        bgGfx
+          ? `bg-[linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5),linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5)] bg-[length:10px_10px]`
+          : null,
         className
       )}
     >

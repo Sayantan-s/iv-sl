@@ -9,6 +9,9 @@ import {
   Payload,
   ValueType,
 } from "recharts/types/component/DefaultTooltipContent";
+import { useDispatch } from "../../store";
+import { songsActions } from "../../store/slices/songs";
+import { ERevenueSource } from "../../store/apis/endpoints/songs/type";
 
 const CHART_CONFIG = {
   revenue: {
@@ -34,6 +37,7 @@ const chartShades = [
 
 export const RevenueCard = () => {
   const { data: revenue } = useGetRevenue();
+  const dispatch = useDispatch();
 
   const revenueChartData = useMemo(
     () => [
@@ -70,10 +74,22 @@ export const RevenueCard = () => {
     []
   );
 
+  const handlePieClick = (value: (typeof revenueChartData)[number]) => {
+    const source = value.source as ERevenueSource;
+    dispatch(
+      songsActions.updateFilters({
+        key: "search.revenueType",
+        value: source,
+      })
+    );
+  };
+
   return (
     <div className="bg-white flex items-center flex-[0.45] py-4 pl-8 pr-2 border border-gray-200 rounded-2xl">
       <div className="flex-[0.5]">
-        <h1 className="text-gray-700 text-lg font-light">Sales Revenue</h1>
+        <h1 className="text-gray-700 text-lg font-light">
+          Revenue Distribution
+        </h1>
         <div className="mt-8">
           <div className="flex gap-4">
             <h2 className="text-gray-700 text-5xl font-medium">
@@ -91,7 +107,9 @@ export const RevenueCard = () => {
               <span>{revenue.growth}%</span>
             </div>
           </div>
-          <p className="text-gray-400 mt-1">This is a sales revenue overview</p>
+          <p className="text-gray-400 mt-1 text-[0.95rem]">
+            This is a revenue distribution overview
+          </p>
         </div>
       </div>
       <Chart.PieChart
@@ -102,7 +120,7 @@ export const RevenueCard = () => {
         data={revenueChartData}
         config={CHART_CONFIG}
         labelListClassName="fill-orange-50"
-        onPieClick={() => {}}
+        onPieClick={handlePieClick}
         tooltipContentClassName="bg-gray-950/80 backdrop-blur-xl border-0 min-w min-w-[10rem] rounded-sm px-3 py-2 shadow-xl shadow-gray-900/30"
         tooltipValueFormatter={tooltipFormatter}
         shadeColors={chartShades}

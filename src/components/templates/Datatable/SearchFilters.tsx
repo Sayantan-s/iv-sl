@@ -18,7 +18,13 @@ import {
   ISearchBy,
   ITableControllerState,
 } from "../../../store/slices/songs/type";
-import React, { Fragment, SetStateAction, useRef, useState } from "react";
+import React, {
+  Fragment,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { ERevenueSource } from "../../../store/apis/endpoints/songs/type";
 import { useDispatch } from "../../../store";
 import { songsActions } from "../../../store/slices/songs";
@@ -51,11 +57,24 @@ export const SearchFilters = () => {
   const controls = useGetControllers();
   const dispatch = useDispatch();
 
-  const [searchByFilters, setSearchByFilters] = useSearchBy(controls);
-  const [revenueSourceFilter, setRevenueSourceFilter] =
-    useChooseRevenue(controls);
-  const [searchedValueFilter, setSearchedValueFilter] =
-    useSearchValue(controls);
+  const [searchByFilters, setSearchByFilters] = useState<TFilterSearch>([]);
+  const [revenueSourceFilter, setRevenueSourceFilter] = useState<
+    TCheckboxSearch[number] | undefined
+  >();
+  const [searchedValueFilter, setSearchedValueFilter] = useState("");
+
+  useEffect(
+    function syncLocalWithGlobalState() {
+      // Add subscriptions to other redux states from here!
+
+      // This is a subscriber to the redux state, it will update the checkbox ui, when piechart is clicked!
+      setRevenueSourceFilter(() => {
+        const revenueType = controls.filters.search.revenueType;
+        return find(CHECKBOX_SEARCH, (state) => state.name === revenueType);
+      });
+    },
+    [controls]
+  );
 
   const inputRef = useRef<HTMLInputElement>(null);
   const listboxButtonRef = useRef<HTMLButtonElement>(null);
@@ -137,7 +156,7 @@ export const SearchFilters = () => {
                     <ListboxOptions
                       anchor="bottom"
                       className={
-                        "bg-white mt-1.5 w-[10rem] border border-gray-100 shadow-md shadow-gray-500/10 rounded-md"
+                        "bg-white z-50 mt-1.5 w-[10rem] border border-gray-100 shadow-md shadow-gray-500/10 rounded-md"
                       }
                     >
                       {FILTER_SEARCH.map((filter) => (
@@ -208,35 +227,3 @@ export const SearchFilters = () => {
     </div>
   );
 };
-
-function useSearchValue(
-  controls: ITableControllerState
-): [string, React.Dispatch<React.SetStateAction<string>>] {
-  return useState(() => get(controls, "filters.search.value"));
-}
-
-function useChooseRevenue(
-  controls: ITableControllerState
-): [
-  TCheckboxSearch[number] | undefined,
-  React.Dispatch<React.SetStateAction<TCheckboxSearch[number] | undefined>>
-] {
-  return useState(() => {
-    const revenueType = controls.filters.search.revenueType;
-    return find(CHECKBOX_SEARCH, (state) => state.name === revenueType);
-  });
-}
-
-function useSearchBy(
-  controls: ITableControllerState
-): [TFilterSearch, React.Dispatch<SetStateAction<TFilterSearch>>] {
-  return useState(
-    () =>
-      filter(
-        map(controls.filters.search.by, (key) =>
-          find(FILTER_SEARCH, (filter) => filter.name === key)
-        ),
-        Boolean
-      ) as TFilterSearch
-  );
-}

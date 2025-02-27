@@ -21,6 +21,7 @@ export const songsAdapter = createEntityAdapter({
 export const dataTableController: ITableControllerState = {
   page: 1,
   limit: 10,
+  next: true,
   filters: {
     search: {
       value: "",

@@ -34,6 +34,7 @@ export interface ISortByItem {
 export interface ITableControllerState {
   page: number;
   limit: number;
+  next: boolean; // Best practice to use nextCursor
   filters: {
     search: {
       value: string;
@@ -42,4 +43,9 @@ export interface ITableControllerState {
     };
     sort: ISortByItem[];
   };
+}
+
+export interface IGetKV<K> {
+  key: keyof K;
+  value: K[keyof K];
 }
