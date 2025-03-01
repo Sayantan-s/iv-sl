@@ -4,7 +4,8 @@ import { IPeriod } from "@store/apis/endpoints/metrics/type";
 import { songsApi } from "@store/apis/endpoints/songs";
 import { FC, useCallback } from "react";
 import { ValueType } from "recharts/types/component/DefaultTooltipContent";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 interface IMaxIndex {
   maxIndex: number | null;
   currentMax: number;
@@ -60,12 +61,10 @@ export const StreamSongsChart: FC<Props> = ({ period }) => {
       return (
         <div className="flex gap-2">
           <div className="w-8 h-8 rounded-full relative overflow-hidden">
-            <img
-              src={
-                "https://i.pinimg.com/1200x/fe/d7/9a/fed79a5e7fcb0aceb8d17059e7bd5f4c.jpg"
-              }
+            <LazyLoadImage
+              src={song?.pic}
               alt={`${song?.id}_${song?.name}`}
-              className="absolute top-0 left-0 object-cover"
+              className="object-cover"
             />
             <div className="w-full h-full absolute top-0 left-0 bg-orange-500/30"></div>
           </div>

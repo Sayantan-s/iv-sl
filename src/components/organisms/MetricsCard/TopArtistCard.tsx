@@ -3,6 +3,8 @@ import { useGetTopArtist } from "@store/hooks/useGetTopArtist";
 import { formatToK } from "@utils/formatToK";
 import { map, snakeCase } from "es-toolkit/compat";
 import { TopArtistFallback } from "./TopArtistFallback";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export const TopArtistCard = () => {
   const { data: topArtist, loading } = useGetTopArtist();
@@ -13,10 +15,11 @@ export const TopArtistCard = () => {
     <Card className="bg-orange-500 border-orange-200! xs:aspect-auto aspect-square flex flex-col justify-between">
       <div className="flex xs:flex-row flex-col items-start xs:gap-2 gap-1">
         <div className="xs:w-14 xs:h-14 w-10 h-10 relative rounded-full overflow-hidden">
-          <img
+          <LazyLoadImage
+            effect="blur"
             src={topArtist.profilePic}
             alt={`${snakeCase(topArtist.name)}_pic`}
-            className="h-full w-full absolute left-0 top-0 object-cover"
+            className="h-full w-full object-cover"
           />
           <div className="w-full h-full absolute top-0 left-0 bg-orange-500/30"></div>
         </div>

@@ -10,14 +10,14 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_6a7b8c9d0e1f",
       name: "Flowers",
       genre: ["Pop", "Disco"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Miley_Cyrus_-_Flowers.png/220px-Miley_Cyrus_-_Flowers.png",
+      pic: "https://i1.sndcdn.com/artworks-YOSTbh90ESawTlzu-s9fROg-t500x500.jpg",
     },
     artist: {
       id: "artist_2e1f9a8b7c6d",
       name: "Miley Cyrus",
       genre: ["Pop", "Rock"],
       profilePic:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Miley_Cyrus_July_2023_by_Brian_Bowen_Smith.jpg/330px-Miley_Cyrus_July_2023_by_Brian_Bowen_Smith.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX0z3D6nt3fKB9IhNp-uM4Ia7dZBWRa1b8Xw&s",
     },
     user: {
       id: "user_f1e2d3c4b9a8",
@@ -33,7 +33,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_e5f6a1b2c3d4",
       name: "Kill Bill",
       genre: ["R&B", "Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/SZA_-_Kill_Bill.png/220px-SZA_-_Kill_Bill.png",
+      pic: "https://static.wixstatic.com/media/d19474_ba8c85461372468fb2a38c5e87bc88d4~mv2.png/v1/fill/w_568,h_694,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/d19474_ba8c85461372468fb2a38c5e87bc88d4~mv2.png",
     },
     artist: {
       id: "artist_c3d4e5f6a1b2",
@@ -56,7 +56,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_a1b2c3d4e5f6",
       name: "As It Was",
       genre: ["Pop", "Synth-pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/Harry_Styles_-_As_It_Was.png/220px-Harry_Styles_-_As_It_Was.png",
+      pic: "https://i.scdn.co/image/ab67616d0000b273b46f74097655d7f353caab14",
     },
     artist: {
       id: "artist_f6e5d4c3b2a1",
@@ -79,7 +79,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_c3d4e5f6a1b2",
       name: "Calm Down (Remix)",
       genre: ["Afrobeats", "Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Calm_Down_Remix_by_Rema_and_Selena_Gomez.jpeg/220px-Calm_Down_Remix_by_Rema_and_Selena_Gomez.jpeg",
+      pic: "https://i1.sndcdn.com/artworks-bZoe0y2USPuXyf3Y-7MGOhg-t500x500.jpg",
     },
     artist: {
       id: "artist_b2a1f6e5d4c3",
@@ -102,7 +102,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_f6a1b2c3d4e5",
       name: "Unholy",
       genre: ["Pop", "Dark Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Sam_Smith_and_Kim_Petras_-_Unholy.png/220px-Sam_Smith_and_Kim_Petras_-_Unholy.png",
+      pic: "https://c.saavncdn.com/725/Unholy-English-2022-20220922233621-500x500.jpg",
     },
     artist: {
       id: "artist_d4c3b2a1f6e5",
@@ -125,7 +125,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_b2c3d4e5f6a1",
       name: "Die For You (Remix)",
       genre: ["R&B", "Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/The_Weeknd_and_Ariana_Grande_Die_For_You_Remix.jpg/220px-The_Weeknd_and_Ariana_Grande_Die_For_You_Remix.jpg",
+      pic: "https://i.pinimg.com/736x/5d/e1/1b/5de11b50a336224f47229eb0daa016e4.jpg",
     },
     artist: {
       id: "artist_a1f6e5d4c3b2",
@@ -148,7 +148,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_d4e5f6a1b2c3",
       name: "Creepin'",
       genre: ["Hip-Hop", "R&B"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b2/Metro_Boomin%2C_The_Weeknd_and_21_Savage_-_Creepin%27.png/220px-Metro_Boomin%2C_The_Weeknd_and_21_Savage_-_Creepin%27.png",
+      pic: "https://images.genius.com/39ed2f969ac708000277af69349818c4.1000x872x1.jpg",
     },
     artist: {
       id: "artist_e5d4c3b2a1f6",
@@ -171,7 +171,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_h8i9j0k1l2m3",
       name: "Last Night",
       genre: ["Country", "Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/Morgan_Wallen_-_Last_Night.png/220px-Morgan_Wallen_-_Last_Night.png",
+      pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7oTu1FWAGWc7m9JKhpeHnfZJTojaXhnhIUQ&s",
     },
     artist: {
       id: "artist_a1b2c3d4e5f6",
@@ -194,7 +194,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_i9j0k1l2m3n4",
       name: "Anti-Hero",
       genre: ["Pop", "Folk-Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Taylor_Swift_-_Anti-Hero.png/220px-Taylor_Swift_-_Anti-Hero.png",
+      pic: "https://images.genius.com/1d7e96eea4ff84d3a0f67ad2920dddd6.1000x1000x1.jpg",
     },
     artist: {
       id: "artist_c3d4e5f6a1b2",
@@ -217,7 +217,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_j0k1l2m3n4o5",
       name: "Cuff It",
       genre: ["R&B", "Funk"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Beyonc%C3%A9_-_Cuff_It.png/220px-Beyonc%C3%A9_-_Cuff_It.png",
+      pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfwvCdnOL7qg13meKtH7JZLt8GI4rBXNZ4rQ&s",
     },
     artist: {
       id: "artist_e5f6a1b2c3d4",
@@ -240,7 +240,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_k1l2m3n4o5p6",
       name: "Boy's a liar Pt. 2",
       genre: ["Drill", "Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8a/PinkPantheress_and_Ice_Spice_-_Boy%27s_a_liar_Pt._2.png/220px-PinkPantheress_and_Ice_Spice_-_Boy%27s_a_liar_Pt._2.png",
+      pic: "https://i1.sndcdn.com/artworks-YxoDyAlg4DABlWMW-30Xl8Q-t500x500.jpg",
     },
     artist: {
       id: "artist_f6e5d4c3b2a1",
@@ -263,7 +263,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_l2m3n4o5p6q7",
       name: "Sure Thing",
       genre: ["R&B", "Soul"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/c/c8/Miguel_-_Sure_Thing_%28Official_Single_Cover%29.png/220px-Miguel_-_Sure_Thing_%28Official_Single_Cover%29.png",
+      pic: "https://i.scdn.co/image/ab67616d0000b273d5a8395b0d80b8c48a5d851c",
     },
     artist: {
       id: "artist_b2a1f6e5d4c3",
@@ -286,7 +286,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_m3n4o5p6q7r8",
       name: "Golden Hour",
       genre: ["Country", "Folk"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/JVKE_-_Golden_Hour.png/220px-JVKE_-_Golden_Hour.png",
+      pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT1seWz5UfypzGoXDHuH5X3EegZiPancIC8g&s",
     },
     artist: {
       id: "artist_f5e1d2c3b4a9",
@@ -309,7 +309,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_n4o5p6q7r8s9",
       name: "Bloody Mary",
       genre: ["Pop", "Dance-Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Lady_Gaga_-_Bloody_Mary.png/220px-Lady_Gaga_-_Bloody_Mary.png",
+      pic: "https://i.scdn.co/image/ab67616d0000b273a47c0e156ea3cebe37fdcab8",
     },
     artist: {
       id: "artist_e1f9a8b7c6d5",
@@ -332,7 +332,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_o5p6q7r8s9t0",
       name: "Lavender Haze",
       genre: ["Pop", "Synth-Pop"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Taylor_Swift_-_Lavender_Haze.png/220px-Taylor_Swift_-_Lavender_Haze.png",
+      pic: "https://images.genius.com/3afc08b9401e36cfc13fb8c2ef222b5c.1000x1000x1.jpg",
     },
     artist: {
       id: "artist_9a8b7c6d5e1f",
@@ -355,7 +355,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_p6q7r8s9t0u1",
       name: "Under the Influence",
       genre: ["R&B", "Trap"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Chris_Brown_-_Under_the_Influence.jpg/220px-Chris_Brown_-_Under_the_Influence.jpg",
+      pic: "https://cdn-images.dzcdn.net/images/cover/2487714abac4e2c7be5e70e9b06ced1f/1900x1900-000000-80-0-0.jpg",
     },
     artist: {
       id: "artist_7c6d5e1f9a8b",
@@ -378,7 +378,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_q7r8s9t0u1v2",
       name: "I'm Good (Blue)",
       genre: ["Dance-Pop", "House"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/7/75/David_Guetta_-_I%27m_Good_%28Blue%29. cover.jpg/220px-David_Guetta_-_I%27m_Good_%28Blue%29._cover.jpg",
+      pic: "https://m.media-amazon.com/images/M/MV5BMmVhYWI4NGQtOTk3Ny00OTg3LWJhOGItNTg5ZWU0NzI2ZTQ2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
     },
     artist: {
       id: "artist_d5e1f9a8b7c6",
@@ -401,7 +401,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_r8s9t0u1v2w3",
       name: "Escapism.",
       genre: ["UK Garage", "R&B"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b8/Raye_-_Escapism.png/220px-Raye_-_Escapism.png",
+      pic: "https://thewarrioronline.com/wp-content/uploads/2021/02/escapism.png",
     },
     artist: {
       id: "artist_1f9a8b7c6d5e",
@@ -424,7 +424,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_s9t0u1v2w3x4",
       name: "Rich Flex",
       genre: ["Hip Hop", "Trap"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Drake_and_21_Savage_-_Rich_Flex.jpg/220px-Drake_and_21_Savage_-_Rich_Flex.jpg",
+      pic: "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
     },
     artist: {
       id: "artist_6d5e1f9a8b7c",
@@ -447,7 +447,7 @@ const RECENT_SONGS: ISongInfo[] = [
       id: "song_t0u1v2w3x4y5",
       name: "Players",
       genre: ["Hip Hop", "Pop Rap"],
-      pic: "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Coi_Leray_-_Players.Artwork.jpg/220px-Coi_Leray_-_Players.Artwork.jpg",
+      pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl3ZWoyZAkjWtce6tJyDHcr7n1qrfsClILSw&s",
     },
     artist: {
       id: "artist_8b7c6d5e1f9a",
@@ -473,7 +473,7 @@ const TOP_SONGS_MONTHLY: ISongInfo[] = [
       id: "song_5a3b1c2d9e8f",
       name: "Flowers",
       genre: ["Pop", "Disco"],
-      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
+      pic: "https://i1.sndcdn.com/artworks-YOSTbh90ESawTlzu-s9fROg-t500x500.jpg",
     },
     artist: {
       id: "artist_1f9e2d3c8b7a",
@@ -497,7 +497,7 @@ const TOP_SONGS_MONTHLY: ISongInfo[] = [
       id: "song_9d5e1f2a8b3c",
       name: "Kill Bill",
       genre: ["R&B", "Pop"],
-      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
+      pic: "https://static.wixstatic.com/media/d19474_ba8c85461372468fb2a38c5e87bc88d4~mv2.png/v1/fill/w_568,h_694,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/d19474_ba8c85461372468fb2a38c5e87bc88d4~mv2.png",
     },
     artist: {
       id: "artist_3b7a9c1d2e8f",
@@ -521,7 +521,7 @@ const TOP_SONGS_MONTHLY: ISongInfo[] = [
       id: "song_7c8d9a1b2e3f",
       name: "Boy's a liar Pt. 2",
       genre: ["Drill", "Pop"],
-      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
+      pic: "https://i1.sndcdn.com/artworks-YxoDyAlg4DABlWMW-30Xl8Q-t500x500.jpg",
     },
     artist: {
       id: "artist_b4a5f6e7d8c9",
@@ -545,7 +545,7 @@ const TOP_SONGS_MONTHLY: ISongInfo[] = [
       id: "song_3e2f1a9d8c7b",
       name: "Calm Down (Remix)",
       genre: ["Afrobeats", "Pop"],
-      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
+      pic: "https://i1.sndcdn.com/artworks-bZoe0y2USPuXyf3Y-7MGOhg-t500x500.jpg",
     },
     artist: {
       id: "artist_a5f9e1d2c3b4",
@@ -569,7 +569,7 @@ const TOP_SONGS_MONTHLY: ISongInfo[] = [
       id: "song_d8c9b7a5f1e2",
       name: "Die For You (Remix)",
       genre: ["R&B", "Pop"],
-      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
+      pic: "https://i.pinimg.com/736x/5d/e1/1b/5de11b50a336224f47229eb0daa016e4.jpg",
     },
     artist: {
       id: "artist_e6f5a1b9c8d7",

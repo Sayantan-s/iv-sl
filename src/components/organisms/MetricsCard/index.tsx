@@ -47,7 +47,10 @@ export const MetricsCards = () => {
   );
 
   return (
-    <div className="order-0 lg:order-1 grid grid-cols-2 grid-rows-2 gap-4 shadow shadow-gray-400/10 bg-white flex-[0.55]">
+    <div
+      id="metrics"
+      className="order-0 lg:order-1 grid grid-cols-2 grid-rows-2 gap-4 shadow shadow-gray-400/10 bg-white flex-[0.55]"
+    >
       {loading ? (
         <MetricCardsFallback />
       ) : (

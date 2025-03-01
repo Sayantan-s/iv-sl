@@ -199,7 +199,7 @@ export const SearchFilters = () => {
                       placeholder={"search. eg. taylor"}
                       value={searchedValueFilter}
                       onChange={handleChange}
-                      disabled={!!!searchByFilters.length}
+                      disabled={!searchByFilters.length}
                       className={
                         "w-full h-full text-sm px-2 disabled:opacity-75 disabled:cursor-not-allowed  focus:outline-orange-300 border border-gray-100 text-gray-700 rounded-md"
                       }

@@ -15,11 +15,11 @@ export const MostStreamedSongs = () => {
   const handleSetIndex = (index: number) => () => setPeriodIndex(index);
 
   return (
-    <Card className="flex-1 flex flex-col lg:aspect-auto aspect-square">
+    <Card id="pa" className="flex-1 flex flex-col lg:aspect-auto aspect-square">
       <div className="flex justify-between items-start flex-[0.2]">
         <div>
           <h2 className="text-gray-700 text-base">
-            Top 5 {periodIndex ? "Monthly" : "Yearly"} Hits
+            Top 5 {PERIODS[periodIndex].label} Hits
           </h2>
           <p className="text-gray-400 text-xs">
             Stats of top five hits over period

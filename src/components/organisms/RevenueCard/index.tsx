@@ -1,5 +1,4 @@
 import { formatToK } from "@utils/formatToK";
-import { ChevronUpIcon } from "@heroicons/react/24/solid";
 import { useGetRevenue } from "@store/hooks/useGetRevenue";
 import { Chart } from "@components/atoms/chart";
 import { useCallback, useMemo } from "react";
@@ -14,6 +13,7 @@ import { songsActions } from "@store/slices/songs";
 import { ERevenueSource } from "@store/apis/endpoints/songs/type";
 import { Card } from "@components/atoms/Card";
 import { Fallback } from "./Fallback";
+import { RevenueGrowthIndicator } from "./RevenueGrowthIndicator";
 
 const CHART_CONFIG = {
   revenue: {
@@ -100,16 +100,7 @@ export const RevenueCard = () => {
               <span className="text-gray-400">$</span>
               {formatToK(revenue.total)}
             </h2>
-            <div className="flex items-center gap-2 text-gray-700">
-              <button
-                role="div"
-                tabIndex={-1}
-                className="w-6 aspect-square rounded-full flex items-center justify-center bg-green-100 text-green-700"
-              >
-                <ChevronUpIcon className="size-4" stroke="8" />
-              </button>
-              <span>{revenue.growth}%</span>
-            </div>
+            <RevenueGrowthIndicator growth={revenue.growth} />
           </div>
           <p className="text-gray-400 md:mt-1 mt-2 text-[0.95rem]">
             This is a revenue distribution overview

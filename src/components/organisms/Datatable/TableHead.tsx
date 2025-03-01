@@ -3,15 +3,15 @@ import { map } from "es-toolkit/compat";
 
 const TABLE_HEAD = [
   {
-    label: "Songs/Artist",
+    label: "Songs & Artist",
     className: "flex-[0.4] lg:min-w-auto min-w-[25rem]",
   },
   { label: "User", className: "flex-[0.25] lg:min-w-auto min-w-[15rem]" },
   {
-    label: "Date Streamed On",
+    label: "Date",
     className: "flex-[0.25] lg:min-w-auto min-w-[10rem]",
   },
-  { label: "Streams", className: "flex-[0.1] lg:min-w-auto" },
+  { label: "Plays", className: "flex-[0.1] lg:min-w-auto" },
 ];
 
 export const TableHead = () => {

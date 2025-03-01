@@ -20,7 +20,7 @@ export const Usergrowth = () => {
         <div>
           <h2 className="text-gray-700 text-base">User Growth Overview</h2>
           <p className="text-gray-400 text-xs">
-            Insights into your platform's growth
+            Insights into your platform&apos;s growth
           </p>
         </div>
         <ToggleGroup

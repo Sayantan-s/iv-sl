@@ -15,6 +15,8 @@ import { TableFallback } from "@components/organisms/Datatable/TableFallback";
 import { Card } from "@components/atoms/Card";
 import { Table } from "@components/utils/Table";
 import clsx from "clsx";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const TOTAL_PAGES = 10;
 const MAX_VISIBLE_PAGES = 3;
@@ -48,16 +50,19 @@ export const Datatable: FC = () => {
     dispatch(songsActions.setPage(page));
 
   return (
-    <Card className="xl:flex-[0.65] flex-[0.6] text-gray-700">
+    <Card className="xl:flex-[0.65] flex-[0.6] text-gray-700" id="table">
       <TableHeader />
       <div className="mt-2 relative overflow-x-scroll">
         <Table className="mt-4 no-scrollbar!">
           <Table.Header>
-            <Table.Row className="flex p-2 bg-white">
+            <Table.Row className="flex px-4 bg-gray-50 rounded-md">
               {map(TABLE_HEAD, (th) => (
                 <Table.Head
                   key={th.label}
-                  className={clsx(th.className, "text-sm gap-2 text-gray-400")}
+                  className={clsx(
+                    th.className,
+                    "text-sm gap-2 text-gray-400 flex items-center"
+                  )}
                 >
                   {th.label}
                 </Table.Head>
@@ -74,16 +79,15 @@ export const Datatable: FC = () => {
                   return (
                     <Table.Row
                       key={song.id}
-                      className="flex px-2 w-full py-3 gap-2 group rounded-md hover:bg-orange-50 focus-within:bg-orange-100 outline-none text-gray-700"
+                      className="flex px-4 w-full py-3 gap-2 group rounded-md hover:bg-orange-50 focus-within:bg-orange-100 outline-none text-gray-700"
                     >
-                      <Table.Cell className="flex gap-2 flex-[0.4] shrink-0 lg:min-w-auto min-w-[25rem]">
-                        <div className="w-8 h-8 rounded-full relative overflow-hidden">
-                          <img
-                            src={
-                              "https://i.pinimg.com/1200x/fe/d7/9a/fed79a5e7fcb0aceb8d17059e7bd5f4c.jpg"
-                            }
+                      <Table.Cell className="flex gap-4 flex-[0.4] shrink-0 lg:min-w-auto min-w-[25rem]">
+                        <div className="w-10 h-10 rounded-full relative overflow-hidden">
+                          <LazyLoadImage
+                            effect="blur"
+                            src={song.pic}
                             alt={`${song.id}_${song.name}`}
-                            className="absolute top-0 left-0 object-cover"
+                            className="object-cover w-full h-full"
                           />
                           <div className="w-full h-full absolute top-0 left-0 bg-orange-500/30"></div>
                         </div>
