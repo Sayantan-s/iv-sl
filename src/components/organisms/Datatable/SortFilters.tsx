@@ -1,12 +1,9 @@
 import {
-  Radio,
-  RadioGroup,
   Field,
   Label,
   Popover,
   PopoverButton,
   PopoverPanel,
-  Input,
   Switch,
 } from "@headlessui/react";
 import {
@@ -16,11 +13,11 @@ import {
   ListboxOptions,
 } from "@headlessui/react";
 import { Direction, ISortByItemKey } from "../../../store/slices/songs/type";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch } from "../../../store";
 import { songsActions } from "../../../store/slices/songs";
 import { useGetControllers } from "../../../store/hooks/useGetFilters";
-import { map, clone } from "es-toolkit/compat";
+import { map, clone, find } from "es-toolkit/compat";
 import { motion } from "motion/react";
 import {
   AdjustmentsVerticalIcon,
@@ -48,6 +45,22 @@ export const SortFilters = () => {
   const controls = useGetControllers();
   const dispatch = useDispatch();
   const [options, setOptions] = useState<TSortItem[]>([]);
+
+  useEffect(
+    function syncLocalWithGlobalState() {
+      // Add subscriptions to other redux states from here!
+      setOptions(
+        map(controls.filters.sort, (sortFilter) => {
+          const targetFilter = find(
+            SORT_ITEMS,
+            (item) => item.name === sortFilter.key
+          );
+          return targetFilter!;
+        })
+      );
+    },
+    [controls]
+  );
 
   const handleApplyFilters =
     (
@@ -83,27 +96,30 @@ export const SortFilters = () => {
     );
   };
 
+  const POPOVER_BUTTON_TEXT = controls.filters.sort.length
+    ? `Sorted by ${controls.filters.sort.length} rule`
+    : "Sort";
+
+  const POPOVER_BUTTON_CLASSNAME =
+    "flex gap-1 items-center cursor-pointer focus:outline-orange-100 px-2 py-1 rounded-md aria-[selected=true]:text-orange-500 aria-[selected=true]:bg-orange-100 sm:aspect-auto aspect-square";
+
   return (
     <div className="flex text-sm">
       <Popover className={"relative"}>
         <PopoverButton
-          className={clsx(
-            "flex gap-1 items-center cursor-pointer focus:outline-orange-100 px-2 py-1 rounded-md",
-            controls.filters.sort.length
-              ? "text-orange-500 focus:bg-orange-100"
-              : ""
-          )}
+          className={POPOVER_BUTTON_CLASSNAME}
+          aria-selected={!!controls.filters.sort.length}
         >
           <AdjustmentsVerticalIcon className="size-4" />
-          <span>
-            {controls.filters.sort.length
-              ? `Sorted by ${controls.filters.sort.length} rule`
-              : "Sort"}
-          </span>
+          <span className="sm:block hidden">{POPOVER_BUTTON_TEXT}</span>
         </PopoverButton>
         <PopoverPanel
+          anchor={{
+            to: "bottom end",
+            gap: 4,
+          }}
           className={
-            "absolute z-40 mt-2 bg-white border border-gray-100 rounded-md shadow-md shadow-gray-700/10 min-w-[20rem]"
+            "absolute z-40 bg-white border border-gray-100 rounded-md shadow-md shadow-gray-700/10 min-w-[20rem]"
           }
         >
           {({ close }) => (
@@ -137,7 +153,7 @@ export const SortFilters = () => {
                       "bg-white z-50 mt-1.5 w-[10rem] border border-gray-100 shadow-md shadow-gray-500/10 rounded-md"
                     }
                   >
-                    {SORT_ITEMS.map((item) => (
+                    {map(SORT_ITEMS, (item) => (
                       <ListboxOption
                         key={item.name}
                         value={item}

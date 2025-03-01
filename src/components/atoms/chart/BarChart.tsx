@@ -34,6 +34,7 @@ interface Props<T> {
   ) => JSX.Element;
   radius?: number;
   bgGfx?: boolean;
+  isLoading?: boolean;
 }
 
 export const Chart = <T,>({
@@ -47,6 +48,7 @@ export const Chart = <T,>({
   activeConfig,
   radius = 8,
   bgGfx,
+  isLoading,
 }: Props<T>) => {
   const handleTooltipFormatter: Formatter<ValueType, NameType> = (
     value,
@@ -86,7 +88,8 @@ export const Chart = <T,>({
         className,
         bgGfx
           ? "bg-[linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5),linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5)] bg-[length:10px_10px]"
-          : null
+          : null,
+        isLoading ? "opacity-50" : "opacity-100"
       )}
     >
       <BarChart

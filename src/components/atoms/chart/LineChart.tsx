@@ -29,6 +29,7 @@ interface Props<T> {
     color: string
   ) => JSX.Element;
   bgGfx?: boolean;
+  isLoading?: boolean;
 }
 
 export const ChartLine = <T,>({
@@ -42,11 +43,13 @@ export const ChartLine = <T,>({
   tooltipValueFormatter,
   tooltipContentClassName,
   bgGfx,
+  isLoading,
 }: Props<T>) => {
   const styles = useMemo(
     () => ({
       left: 12,
       right: 12,
+      top: 6,
     }),
     []
   );
@@ -69,7 +72,8 @@ export const ChartLine = <T,>({
         bgGfx
           ? `bg-[linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5),linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5)] bg-[length:10px_10px]`
           : null,
-        className
+        className,
+        isLoading ? "opacity-50" : "opacity-100"
       )}
     >
       <LineChart accessibilityLayer data={data} margin={styles}>
@@ -97,10 +101,15 @@ export const ChartLine = <T,>({
           <Line
             key={dataKey}
             dataKey={dataKey}
-            type="monotone"
+            type="natural"
             stroke={color}
             strokeWidth={2.5}
-            dot={false}
+            dot={{
+              fill: color,
+            }}
+            activeDot={{
+              r: 6,
+            }}
           />
         ))}
       </LineChart>

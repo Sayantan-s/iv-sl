@@ -18,7 +18,21 @@
   }
 }
 
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
 @theme {
+  --breakpoint-xs: 35rem;
+
   --color-orange-50: #fff6ed;
   --color-orange-100: #ffebd4;
   --color-orange-200: #ffd3a8;

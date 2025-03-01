@@ -10,9 +10,10 @@ interface ListProps<T> {
   isEmptyFallback: JSX.Element;
   data: T[];
   className?: string;
+  tableHead: JSX.Element;
 }
 
-export const List = <T,>({
+export const Table = <T,>({
   renderItem,
   isLoading,
   data,
@@ -20,8 +21,10 @@ export const List = <T,>({
   className,
   isEmpty,
   isEmptyFallback,
+  tableHead,
 }: ListProps<T>) => (
-  <div className={clsx(className, "relative")}>
+  <div className={clsx(className, "relative")} role="table">
+    {tableHead}
     {isLoading
       ? loadingFallback
       : isEmpty

@@ -4,8 +4,8 @@ import {
   initialStateMSongs,
   songsAdapter,
   usersAdapter,
-} from "./state";
-import { songsApi } from "../../apis/endpoints/songs";
+} from "@store/slices/songs/state";
+import { songsApi } from "@store/apis/endpoints/songs";
 import { map } from "es-toolkit/compat";
 
 export const recentsExtraReducers = (
@@ -36,27 +36,29 @@ export const recentsExtraReducers = (
   builder.addMatcher(
     songsApi.endpoints.songs.matchFulfilled,
     (state, action) => {
-      state.controllers.next = !!action.payload.data.length;
-      state.songs.recents.ids = map(
-        action.payload.data,
-        (recent) => recent.song.id
-      );
+      state.controllers.next = !!action.payload.ids.length;
+      const docIds = action.payload.ids;
+      const docs = action.payload.entities;
+      state.songs.recents.ids = map(docIds, (docId) => docs[docId].song.id);
+
       songsAdapter.addMany(
         state.songs,
-        map(action.payload.data, (state) => ({
-          ...state,
-          artist: state.artist.id,
-          user: state.user.id,
+        map(docIds, (docId) => ({
+          ...docs[docId],
+          artist: docs[docId].artist.id,
+          user: docs[docId].user.id,
         }))
       );
       artistsAdapter.addMany(
         state.artists,
-        map(action.payload.data, (songInfo) => songInfo.artist)
+        map(docIds, (docId) => docs[docId].artist)
       );
+
       usersAdapter.addMany(
         state.users,
-        map(action.payload.data, (songInfo) => songInfo.user)
+        map(docIds, (docId) => docs[docId].user)
       );
+
       state.songs.recents.loading = false;
       state.songs.recents.error = "";
     }

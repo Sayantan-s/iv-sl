@@ -10,4 +10,12 @@ export default defineConfig({
   dev: {
     lazyCompilation: true, // Fast start times
   },
+  source: {
+    alias: {
+      "@components": "./src/components",
+      "@store": "./src/store",
+      "@hooks": "./src/hooks",
+      "@utils": "./src/utils",
+    },
+  },
 });

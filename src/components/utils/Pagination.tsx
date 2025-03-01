@@ -4,7 +4,7 @@ import {
   EllipsisHorizontalIcon,
 } from "@heroicons/react/24/solid";
 import clsx from "clsx";
-import React from "react";
+import React, { KeyboardEventHandler } from "react";
 
 export interface PaginationProps {
   currentPage: number;
@@ -43,6 +43,13 @@ export const Pagination = ({
     }
   };
 
+  const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (e) => {
+    if (e.key === "ArrowLeft") handlePrevious();
+    else if (e.key === "ArrowRight") handleNext();
+    else if (e.key === "Home") onPageChange(1);
+    else if (e.key === "End") onPageChange(totalPages);
+  };
+
   // Calculate which page numbers to show
   const getVisiblePageNumbers = () => {
     const pageNumbers = [];
@@ -56,7 +63,6 @@ export const Pagination = ({
       startPage = Math.max(1, endPage - maxVisiblePages + 1);
     }
 
-    // First page
     if (startPage > 1) {
       pageNumbers.push(1);
       if (startPage > 2) {
@@ -64,12 +70,10 @@ export const Pagination = ({
       }
     }
 
-    // Visible pages
     for (let i = startPage; i <= endPage; i++) {
       pageNumbers.push(i);
     }
 
-    // Last page
     if (endPage < totalPages) {
       if (endPage < totalPages - 1) {
         pageNumbers.push("ellipsis-end");
@@ -84,6 +88,7 @@ export const Pagination = ({
     <div
       className={clsx("flex items-center justify-center gap-2", className)}
       ref={ref}
+      onKeyDown={handleKeyDown}
     >
       <button
         onClick={handlePrevious}
@@ -113,9 +118,10 @@ export const Pagination = ({
 
             return (
               <button
+                disabled={+pageNumber > maxMovement}
                 key={pageNumber}
                 className={clsx(
-                  "h-6 w-6 shadow cursor-pointer  shadow-gray-500/20 rounded-md text-xs text-gray-700 border-gray-100 border transition-all duration-200 aria-[current]:bg-gray-700 aria-[current]:pointer-events-none aria-[current]:font-medium aria-[current]:text-gray-50"
+                  "h-6 w-6 shadow cursor-pointer  shadow-gray-500/20 rounded-md text-xs text-gray-700 border-gray-100 border transition-all duration-200 aria-[current]:bg-orange-500 aria-[current]:pointer-events-none aria-[current]:font-medium aria-[current]:text-orange-50 disabled:opacity-40 disabled:cursor-not-allowed"
                 )}
                 onClick={() => onPageChange(pageNumber as number)}
                 aria-label={`Page ${pageNumber}`}

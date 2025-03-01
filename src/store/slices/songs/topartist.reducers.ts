@@ -11,6 +11,18 @@ export const topArtistExtraReducer = (
       artistsAdapter.addOne(state.artists, action.payload);
       state.artists.topArtist.data.id = action.payload.id;
       state.artists.topArtist.data.streamCount = action.payload.totalStreams;
+      state.artists.topArtist.loading = false;
+      state.artists.topArtist.error = "";
     }
   );
+
+  builder.addMatcher(songsApi.endpoints.topArtist.matchPending, (state) => {
+    state.artists.topArtist.loading = true;
+    state.artists.topArtist.error = "";
+  });
+
+  builder.addMatcher(songsApi.endpoints.topArtist.matchPending, (state) => {
+    state.artists.topArtist.loading = true;
+    state.artists.topArtist.error = "Something wen't wrong!";
+  });
 };

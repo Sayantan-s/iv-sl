@@ -1,4 +1,5 @@
 import { ERevenueSource, ISongInfo } from "../../apis/endpoints/songs/type";
+import { initialStateMSongs } from "./state";
 
 interface INewEntities {
   artist: string;
@@ -19,7 +20,7 @@ export enum SortBy {
 
 export enum Direction {
   ASC = "asc",
-  DSC = "dsc",
+  DSC = "desc",
 }
 
 export enum ISortByItemKey {
@@ -49,3 +50,5 @@ export interface IGetKV<K> {
   key: keyof K;
   value: K[keyof K];
 }
+
+export type SongState = typeof initialStateMSongs;

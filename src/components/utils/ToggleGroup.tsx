@@ -20,16 +20,19 @@ export const ToggleGroup: FC<PropsWithChildren<IProps>> = ({
   disabled,
 }) => {
   return (
-    <div className={clsx(className)}>
-      {React.Children.map(children, (child: any, index) => {
-        if (child.type !== "button")
-          throw new Error("Child should be of type `button`");
-        return cloneElement(child, {
-          "aria-checked": selectedItemIndex === index,
-          onClick: () => onSelect(index),
-          disabled,
-        });
-      })}
+    <div role="tab">
+      <div className={clsx(className)} role="tablist">
+        {React.Children.map(children, (child: any, index) => {
+          if (child.type !== "button")
+            throw new Error("Child should be of type `button`");
+          return cloneElement(child, {
+            "aria-selected": selectedItemIndex === index,
+            onClick: () => onSelect(index),
+            disabled,
+            role: "tab",
+          });
+        })}
+      </div>
     </div>
   );
 };

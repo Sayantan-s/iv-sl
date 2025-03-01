@@ -1,7 +1,7 @@
-import { formatToK } from "../../utils/formatToK";
+import { formatToK } from "@utils/formatToK";
 import { ChevronUpIcon } from "@heroicons/react/24/solid";
-import { useGetRevenue } from "../../store/hooks/useGetRevenue";
-import { Chart } from "../organisms/chart";
+import { useGetRevenue } from "@store/hooks/useGetRevenue";
+import { Chart } from "@components/atoms/chart";
 import { useCallback, useMemo } from "react";
 import clsx from "clsx";
 import {
@@ -9,9 +9,11 @@ import {
   Payload,
   ValueType,
 } from "recharts/types/component/DefaultTooltipContent";
-import { useDispatch } from "../../store";
-import { songsActions } from "../../store/slices/songs";
-import { ERevenueSource } from "../../store/apis/endpoints/songs/type";
+import { useDispatch } from "@store";
+import { songsActions } from "@store/slices/songs";
+import { ERevenueSource } from "@store/apis/endpoints/songs/type";
+import { Card } from "@components/atoms/Card";
+import { Fallback } from "./Fallback";
 
 const CHART_CONFIG = {
   revenue: {
@@ -36,7 +38,7 @@ const chartShades = [
 ];
 
 export const RevenueCard = () => {
-  const { data: revenue } = useGetRevenue();
+  const { data: revenue, loading } = useGetRevenue();
   const dispatch = useDispatch();
 
   const revenueChartData = useMemo(
@@ -84,14 +86,16 @@ export const RevenueCard = () => {
     );
   };
 
+  if (loading) return <Fallback />;
+
   return (
-    <div className="bg-white flex items-center flex-[0.45] py-4 pl-8 pr-2 border border-gray-200 rounded-2xl">
-      <div className="flex-[0.5]">
+    <Card className="order-1 lg:order-0 bg-white flex md:flex-row flex-col items-center flex-[0.45] md:py-4! md:pl-8! md:pr-2! border border-gray-200">
+      <div className="xl:flex-[0.5] flex-[0.4] flex-shrink-1 md:text-left text-center md:mt-0 mt-20">
         <h1 className="text-gray-700 text-lg font-light">
           Revenue Distribution
         </h1>
-        <div className="mt-8">
-          <div className="flex gap-4">
+        <div className="md:mt-8 mt-4">
+          <div className="flex gap-4 md:justify-start justify-center">
             <h2 className="text-gray-700 text-5xl font-medium">
               <span className="text-gray-400">$</span>
               {formatToK(revenue.total)}
@@ -107,14 +111,14 @@ export const RevenueCard = () => {
               <span>{revenue.growth}%</span>
             </div>
           </div>
-          <p className="text-gray-400 mt-1 text-[0.95rem]">
+          <p className="text-gray-400 md:mt-1 mt-2 text-[0.95rem]">
             This is a revenue distribution overview
           </p>
         </div>
       </div>
       <Chart.PieChart
         radius={14}
-        className="flex-[0.5]! p-0! w-full"
+        className="xl:flex-[0.5]! flex-[0.6] p-0! w-full flex-shrink-0 xl:flex-shrink-1 min-h-[15rem]"
         nameKey="source"
         dataKey="revenue"
         data={revenueChartData}
@@ -125,6 +129,6 @@ export const RevenueCard = () => {
         tooltipValueFormatter={tooltipFormatter}
         shadeColors={chartShades}
       />
-    </div>
+    </Card>
   );
 };

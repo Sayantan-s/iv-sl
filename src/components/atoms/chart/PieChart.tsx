@@ -10,6 +10,7 @@ import {
 } from "recharts/types/component/DefaultTooltipContent";
 import { JSX, useState } from "react";
 import { useSwitch } from "../../../hooks/useSwitch";
+import { debounce } from "es-toolkit/compat";
 
 interface IShadeProps {
   upShade: string;
@@ -32,6 +33,7 @@ interface Props<T> {
   radius?: number;
   shadeColors: IShadeProps[];
   bgGfx?: boolean;
+  isLoading?: boolean;
 }
 
 export const Chart = <T,>({
@@ -47,6 +49,7 @@ export const Chart = <T,>({
   radius = 30,
   shadeColors,
   bgGfx,
+  isLoading,
 }: Props<T>) => {
   const handlePieClick: PieProps["onClick"] = (data) =>
     onPieClick(data.payload.payload);
@@ -65,10 +68,14 @@ export const Chart = <T,>({
     return tooltipValueFormatter(value, payload);
   };
 
-  const handleMouseOver: PieProps["onMouseOver"] = (_, i) => {
-    on();
-    setActiveIndex(i);
-  };
+  const handleMouseOver: PieProps["onMouseOver"] = debounce(
+    (_, i) => {
+      on();
+      setActiveIndex(i);
+    },
+    500,
+    { leading: true }
+  );
 
   const handleMouseOut: PieProps["onMouseLeave"] = () => {
     off();
@@ -83,7 +90,8 @@ export const Chart = <T,>({
           ? "bg-[linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5),linear-gradient(45deg,#f5f5f5_25%,transparent_25%,transparent_75%,#f5f5f5_75%,#f5f5f5)] bg-[length:10px_10px]"
           : "",
         className,
-        `w-full mx-auto p-6 bg-white aspect-square!`
+        `w-full mx-auto p-6 bg-white aspect-square!`,
+        isLoading ? "opacity-50" : "opacity-100"
       )}
     >
       <PieChart>

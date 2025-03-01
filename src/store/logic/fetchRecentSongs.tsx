@@ -46,7 +46,7 @@ export function fetchRecentSongs(
   if (revenueType)
     result = filter(result, (song) => song.revenueSource !== revenueType);
   if (searchBy.length && searchValue)
-    // :: Logic based on
+    // :: Logic based on any of the two includes the searched value!
     result = filter(result, (doc) =>
       some([doc.artist.name, doc.song.name], (name) =>
         includes(toLower(name), toLower(searchValue))

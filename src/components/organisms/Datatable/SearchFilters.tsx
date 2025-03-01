@@ -14,26 +14,17 @@ import {
   ListboxOption,
   ListboxOptions,
 } from "@headlessui/react";
-import {
-  ISearchBy,
-  ITableControllerState,
-} from "../../../store/slices/songs/type";
-import React, {
-  Fragment,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { ERevenueSource } from "../../../store/apis/endpoints/songs/type";
-import { useDispatch } from "../../../store";
-import { songsActions } from "../../../store/slices/songs";
-import { useGetControllers } from "../../../store/hooks/useGetFilters";
+import { ISearchBy } from "@store/slices/songs/type";
+import React, { Fragment, useEffect, useRef, useState } from "react";
+import { ERevenueSource } from "@store/apis/endpoints/songs/type";
+import { useDispatch } from "@store";
+import { songsActions } from "@store/slices/songs";
+import { useGetControllers } from "@store/hooks/useGetFilters";
 import { CheckIcon } from "@heroicons/react/24/solid";
 import { FunnelIcon } from "@heroicons/react/24/outline";
 
 import clsx from "clsx";
-import { find, map, filter, get, join, trim } from "es-toolkit/compat";
+import { find, map, get, join, trim } from "es-toolkit/compat";
 
 const FILTER_SEARCH = [
   { id: 1, name: ISearchBy.ARTIST, label: "Artist" },
@@ -59,8 +50,8 @@ export const SearchFilters = () => {
 
   const [searchByFilters, setSearchByFilters] = useState<TFilterSearch>([]);
   const [revenueSourceFilter, setRevenueSourceFilter] = useState<
-    TCheckboxSearch[number] | undefined
-  >();
+    TCheckboxSearch[number] | null
+  >(null);
   const [searchedValueFilter, setSearchedValueFilter] = useState("");
 
   useEffect(
@@ -70,7 +61,9 @@ export const SearchFilters = () => {
       // This is a subscriber to the redux state, it will update the checkbox ui, when piechart is clicked!
       setRevenueSourceFilter(() => {
         const revenueType = controls.filters.search.revenueType;
-        return find(CHECKBOX_SEARCH, (state) => state.name === revenueType);
+        return (
+          find(CHECKBOX_SEARCH, (state) => state.name === revenueType) || null
+        );
       });
     },
     [controls]
@@ -103,6 +96,27 @@ export const SearchFilters = () => {
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (eve) =>
     setSearchedValueFilter(eve.target.value);
 
+  const handleSelectFilters = (value: TFilterSearch) => {
+    setSearchByFilters(value);
+    inputRef.current?.focus();
+  };
+
+  const handleClearFilter =
+    (
+      close: (
+        focusableElement?:
+          | HTMLElement
+          | React.MutableRefObject<HTMLElement | null>
+      ) => void
+    ) =>
+    () => {
+      setSearchByFilters([]);
+      setRevenueSourceFilter(null);
+      setSearchedValueFilter("");
+      dispatch(songsActions.clearSearchFilters());
+      close();
+    };
+
   const isSearchParamEmpty = !!(
     trim(searchedValueFilter).length && !searchByFilters.length
   );
@@ -115,23 +129,30 @@ export const SearchFilters = () => {
     ? join(map(searchByFilters, "label"), ", ")
     : "Select";
 
-  const isFiltersApplied =
+  const isFiltersApplied = !!(
     get(controls, "filters.search.revenueType") ||
-    get(controls, "controls.filters.search.value");
+    get(controls, "controls.filters.search.value")
+  );
+
+  const POPOVER_BUTTON_TEXT = isFiltersApplied ? `Filters Applied` : "Filter";
 
   return (
     <div className="flex text-sm">
       <Popover className={"relative"}>
         <PopoverButton
+          aria-selected={isFiltersApplied}
           className={clsx(
-            "flex gap-1 items-center cursor-pointer focus:outline-orange-100 px-2 py-1 rounded-md",
-            isFiltersApplied ? "text-orange-500 focus:bg-orange-100" : ""
+            "flex gap-1 items-center cursor-pointer px-2 py-1 rounded-md aria-[selected=true]:text-orange-500 aria-[selected=true]:bg-orange-100 focus:outline-orange-100 sm:aspect-auto aspect-square"
           )}
         >
           <FunnelIcon className="size-4" />
-          <span>{isFiltersApplied ? `Filters Applied` : "Filter"}</span>
+          <span className="sm:block hidden">{POPOVER_BUTTON_TEXT}</span>
         </PopoverButton>
         <PopoverPanel
+          anchor={{
+            to: "bottom end",
+            gap: 4,
+          }}
           className={
             "absolute z-40  mt-2 bg-white border border-gray-100 rounded-md shadow-md shadow-gray-700/10 min-w-[20rem]"
           }
@@ -142,7 +163,7 @@ export const SearchFilters = () => {
                 <div className="flex gap-2 w-full">
                   <Listbox
                     value={searchByFilters}
-                    onChange={setSearchByFilters}
+                    onChange={handleSelectFilters}
                     multiple
                   >
                     <ListboxButton
@@ -180,7 +201,7 @@ export const SearchFilters = () => {
                       onChange={handleChange}
                       disabled={!!!searchByFilters.length}
                       className={
-                        "w-full h-full px-2 disabled:opacity-75 disabled:cursor-not-allowed  focus:outline-orange-300 border border-gray-100 text-gray-700 rounded-md"
+                        "w-full h-full text-sm px-2 disabled:opacity-75 disabled:cursor-not-allowed  focus:outline-orange-300 border border-gray-100 text-gray-700 rounded-md"
                       }
                     />
                   </div>
@@ -192,27 +213,42 @@ export const SearchFilters = () => {
                   className={"flex items-center mt-3 space-x-3"}
                 >
                   {CHECKBOX_SEARCH.map((checkbox) => (
-                    <Field key={checkbox.id} className={"flex gap-1.5"}>
-                      <Radio value={checkbox} as={Fragment}>
+                    <Field
+                      key={checkbox.id}
+                      className={"flex gap-1.5 items-center text-gray-700"}
+                    >
+                      <Radio
+                        value={checkbox}
+                        as={"button"}
+                        className={
+                          "p-0.5 border aria-[checked=true]:border-orange-200 border-transparent rounded-full"
+                        }
+                      >
                         {({ checked }) => (
                           <span
                             className={clsx(
-                              "w-5 h-5 rounded-md flex items-center justify-center p-1 text-white",
+                              "w-4.5 h-4.5 rounded-full flex items-center justify-center text-white",
                               checked
                                 ? "bg-orange-500 border border-transparent"
                                 : "bg-transparent border border-gray-200"
                             )}
                           >
-                            <CheckIcon className="size-3" />
+                            <CheckIcon className="size-2.5" strokeWidth={2} />
                           </span>
                         )}
                       </Radio>
-                      <Label>{checkbox.label}</Label>
+                      <Label className={"text-sm"}>{checkbox.label}</Label>
                     </Field>
                   ))}
                 </RadioGroup>
               </div>
-              <div className="px-3 py-1.5 bg-gray-50 flex justify-end">
+              <div className="px-3 py-1.5 bg-gray-50 flex justify-end gap-2">
+                <button
+                  onClick={handleClearFilter(close)}
+                  className="bg-white px-3 py-1 text-xs text-gray-900 shadow shadow-gray-900/10 border border-gray-100  rounded-md"
+                >
+                  Clear
+                </button>
                 <button
                   onClick={handleApplyFilters(close)}
                   className="bg-gray-900 px-3 py-1 text-xs text-gray-100 shadow shadow-gray-900/10  rounded-md"

@@ -4,6 +4,7 @@ import * as PieChart from "./PieChart";
 import * as BarChart from "./BarChart";
 import { clsx as cn } from "clsx";
 import { ChartLine } from "./LineChart";
+import { map } from "es-toolkit/compat";
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const;
@@ -79,22 +80,19 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   return (
     <style
       dangerouslySetInnerHTML={{
-        __html: Object.entries(THEMES)
-          .map(
-            ([theme, prefix]) => `
+        __html: map(
+          Object.entries(THEMES),
+          ([theme, prefix]) => `
 ${prefix} [data-chart=${id}] {
-${colorConfig
-  .map(([key, itemConfig]) => {
-    const color =
-      itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ||
-      itemConfig.color;
-    return color ? `  --color-${key}: ${color};` : null;
-  })
-  .join("\n")}
+${map(colorConfig, ([key, itemConfig]) => {
+  const color =
+    itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ||
+    itemConfig.color;
+  return color ? `  --color-${key}: ${color};` : null;
+}).join("\n")}
 }
 `
-          )
-          .join("\n"),
+        ).join("\n"),
       }}
     />
   );

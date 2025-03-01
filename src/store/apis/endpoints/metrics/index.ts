@@ -4,10 +4,9 @@ import {
   EUserGrowthPeriod,
   IPeriodBasedMetrics,
   IRevenue,
-  IUserGrowth,
   IUserGrowthMetrics,
 } from "./type";
-import { apiResolver } from "../../../utils/apiResolver";
+import { apiResolver } from "@store/utils/apiResolver";
 import { METRICS_API } from "./uri";
 
 export const metricsApi = api.injectEndpoints({
@@ -32,7 +31,7 @@ export const metricsApi = api.injectEndpoints({
     >({
       queryFn: async (periodGap) => {
         const OP = USER_GROWTH_OUTPUT[periodGap];
-        if (!OP) throw new Error("No Year Found!");
+        if (!OP) throw new Error("No Growth output!");
         const data = await apiResolver<IUserGrowthMetrics[]>(OP);
         return { data };
       },

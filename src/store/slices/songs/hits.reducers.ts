@@ -4,8 +4,8 @@ import {
   initialStateMSongs,
   songsAdapter,
   usersAdapter,
-} from "./state";
-import { songsApi } from "../../apis/endpoints/songs";
+} from "@store/slices/songs/state";
+import { songsApi } from "@store/apis/endpoints/songs";
 import { map } from "es-toolkit/compat";
 
 export const hitsExtraReducers = (

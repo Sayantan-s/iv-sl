@@ -1,11 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import * as rr from "react-redux";
-import { api } from "./apis";
-import { metricsSlice } from "./slices/metrics";
-import { songsSlice } from "./slices/songs";
+import { api } from "@store/apis";
+import { metricsSlice } from "@store/slices/metrics";
+import { songsSlice } from "@store/slices/songs";
 
 const middlewares = [api.middleware];
-metricsSlice;
 
 export const store = configureStore({
   reducer: {
