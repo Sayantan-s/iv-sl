@@ -40,7 +40,7 @@ const NAV = [
 export const SpeedDial: FC<IProps> = ({ className }) => {
   return (
     <Popover
-      className={"fixed bottom-2 cursor-pointer right-2 md:hidden block"}
+      className={"fixed bottom-2 cursor-pointer right-4 md:hidden block"}
     >
       {({ open }) => (
         <Fragment>
