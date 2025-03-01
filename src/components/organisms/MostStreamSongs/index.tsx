@@ -34,7 +34,7 @@ export const MostStreamedSongs = () => {
             <button
               key={period.label}
               onClick={handleSetIndex(index)}
-              className="text-xs z-10 cursor-pointer aria-[selected=true]:bg-white bg-transparent py-1 px-2.5 rounded-full aria-[selected=true]:shadow"
+              className="text-xs cursor-pointer aria-[selected=true]:bg-white bg-transparent py-1 px-2.5 rounded-full aria-[selected=true]:shadow"
               aria-checked={index === periodIndex}
             >
               {period.label}

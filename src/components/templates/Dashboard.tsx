@@ -10,7 +10,7 @@ import { SpeedDial } from "@components/utils/SpeedDial";
 const Dashboard = () => {
   return (
     <Fragment>
-      <div className="w-full bg-gray-100 min-h-screen xl:py-10 py-0">
+      <div className="w-full bg-gray-100 min-h-screen xl:py-10 py-0 font-display">
         <div className="mx-auto w-full max-w-[1300px] xl:rounded-2xl overflow-hidden bg-white p-6 space-y-4">
           <Header />
           <div className="flex gap-4 lg:flex-row flex-col">

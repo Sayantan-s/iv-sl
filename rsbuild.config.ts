@@ -18,4 +18,27 @@ export default defineConfig({
       "@utils": "./src/utils",
     },
   },
+  html: {
+    tags: [
+      {
+        tag: "link",
+        attrs: { href: "https://fonts.googleapis.com", rel: "preconnect" },
+      },
+      {
+        tag: "link",
+        attrs: {
+          href: "https://fonts.gstatic.com",
+          rel: "preconnect",
+          crossorigin: true,
+        },
+      },
+      {
+        tag: "link",
+        attrs: {
+          href: "https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap",
+          rel: "stylesheet",
+        },
+      },
+    ],
+  },
 });

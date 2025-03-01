@@ -18,8 +18,10 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    @apply scroll-smooth font-display;
+  }
 }
 
 @layer utilities {
@@ -36,6 +38,8 @@ html {
 
 @theme {
   --breakpoint-xs: 35rem;
+
+  --font-display: "Manrope", "sans-serif";
 
   --color-orange-50: #fff6ed;
   --color-orange-100: #ffebd4;
