@@ -596,7 +596,7 @@ const TOP_SONGS_YEARLY: ISongInfo[] = [
       id: "song_2a1b9c8d7e6f",
       name: "Last Night",
       genre: ["Country", "Pop"],
-      pic: "hhttps://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
+      pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7oTu1FWAGWc7m9JKhpeHnfZJTojaXhnhIUQ&s",
     },
     artist: {
       id: "artist_f5e1d2c3b4a9",
@@ -620,7 +620,7 @@ const TOP_SONGS_YEARLY: ISongInfo[] = [
       id: "song_c3d4e5f9a1b2",
       name: "As It Was",
       genre: ["Pop", "Synth-pop"],
-      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
+      pic: "https://i.scdn.co/image/ab67616d0000b273b46f74097655d7f353caab14",
     },
     artist: {
       id: "artist_9e8f7a1b2c3d",
@@ -644,7 +644,7 @@ const TOP_SONGS_YEARLY: ISongInfo[] = [
       id: "song_e8f7a5b1c9d2",
       name: "Creepin'",
       genre: ["Hip-Hop", "R&B"],
-      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
+      pic: "https://images.genius.com/39ed2f969ac708000277af69349818c4.1000x872x1.jpg",
     },
     artist: {
       id: "artist_c2d3e4f5a1b9",
@@ -668,7 +668,7 @@ const TOP_SONGS_YEARLY: ISongInfo[] = [
       id: "song_a1b2c3d9e8f7",
       name: "Unholy",
       genre: ["Pop", "Dark Pop"],
-      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
+      pic: "https://c.saavncdn.com/725/Unholy-English-2022-20220922233621-500x500.jpg",
     },
     artist: {
       id: "artist_7a9c8d2e1f5b",
@@ -692,7 +692,7 @@ const TOP_SONGS_YEARLY: ISongInfo[] = [
       id: "song_9c8d7e6f1a2b",
       name: "Anti-Hero",
       genre: ["Pop", "Folk-Pop"],
-      pic: "https://lh3.googleusercontent.com/gg-dl/AA8i_VLr0t7Nj44b5cP_UzYKpBnKCq2AYKU1f_69uqBdnr9wEnn7Gw3dkN5dZft7a5hfewpZhWjONGw5GaC2sZmNdiiFSQSq_uCsI3bEhEHDubKNCw2sue9MG_Ug4ECo5aMOfEFDlcgovNNzK-vV6rJflWIBVEob6-jC_5y77y3xmhdEPDvNTg",
+      pic: "https://images.genius.com/1d7e96eea4ff84d3a0f67ad2920dddd6.1000x1000x1.jpg",
     },
     artist: {
       id: "artist_d1c2b9a5f6e7",
